@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>基于NUCLEO-L496ZG开发 - Tech Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="基于NUCLEO-L496ZG开发" />
+<meta property="og:description" content="本文基于STM32CubeMX &#43; Keil5 的开发，介绍该型号的配置和使用方法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zvictorliu.github.io/techBlog/post/nucleol496zg/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-04-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-21T00:00:00+00:00" />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/techBlog/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/techBlog/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/techBlog/" title="Tech Blog" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Tech Blog</div>
+					<div class="logo__tagline">大争之世</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/techBlog/docs/getting-started/">
+				
+				<span class="menu__text">Get start</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/techBlog/docs/customization/">
+				
+				<span class="menu__text">Customization</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/techBlog/docs/faq/">
+				
+				<span class="menu__text">FAQ</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/techBlog/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">基于NUCLEO-L496ZG开发</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-04-21T00:00:00Z">April 21, 2023</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/techBlog/categories/development/" rel="category">Development</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法</p>
+<h1 id="写在前面">写在前面</h1>
+<p>重要手册：</p>
+<p><a href="https://www.st.com/content/ccc/resource/technical/document/user_manual/group0/6e/c2/81/e8/92/5f/41/cc/DM00368330/files/DM00368330.pdf/jcr:content/translations/en.DM00368330.pdf">UM2179: STM32 Nucleo-144 boards (MB1312)</a> 是NUCLEO-144系列开发板的相关手册，可谓最重要的参考文档</p>
+<p><a href="https://www.st.com/resource/en/datasheet/stm32l496zg.pdf">DS11585</a> 是板载的MCU手册，用处不大，现在基本不会用裸机</p>
+<p>STM32L073xx_User_Manual.chm 这个一般位于cube安装的pack里面（\STM32Cube\Repository\STM32Cube_FW_L0_V1.12.2\Drivers\STM32L0xx_HAL_Driver），是HAL库的手册，用HAL库的都有类似的文档，因此不必纠结是不是L0系列</p>
+<h1 id="stm32cubemx">STM32CubeMX</h1>
+<p>CubeMX最直接的好处就是可视化配置+代码框架，在其中配置好生成代码即可</p>
+<p>CubeMX的不同版本界面差别挺大，笔者用的是 STM32CubeMX-Win <a href="https://www.st.com/zh/development-tools/stm32cubemx.html#get-software">6.8.0</a>，也建议紧跟时代用新版，免费软件没问题的</p>
+<h2 id="选型">选型</h2>
+<ul>
+<li>在<code>Pakages Manager</code> 里面安装L4系列的MCU Pack</li>
+<li>在new project里，直接选板子，板子和其MCU型号是对应了的，这样生成的界面才能看到一些重要管脚定义</li>
+</ul>
+<h2 id="配置">配置</h2>
+<p>主要需要配置 LPUART 和 ADC</p>
+<ul>
+<li>LPUART 用于和PC机直接通过USB线通信（因为它是和STLINK连接的），默认是使能了的，但还需要自行配置其波特率等参数</li>
+<li>ADC 要Enable其引脚，否则即使在引脚端选择了也还是黄色的而非绿色，要注意别忘了
+<ul>
+<li>如果需要用中断方式，记得配置 Global Interupt</li>
+</ul>
+</li>
+</ul>
+<h2 id="生成代码">生成代码</h2>
+<p>注意在generate code的时候记得选分文件（不是必要，但有利于阅读）</p>
+<p>并且要注意toolchain的最小版本是否合适</p>
+<p>项目名字一旦取定则无法更改</p>
+<h1 id="keil">Keil</h1>
+<p>在keil上需要安装l4系列的pack，注意由于官网的pack一般是新版，可能直接安装就旧版Keil上会出现这样的问题：</p>
+<!-- raw HTML omitted -->
+<p>这个并不太会影响正常使用，作为强迫症患者最好换新版Keil</p>
+<p>在Keil上的魔法棒（option for target)，要注意配置两个地方</p>
+<ul>
+<li>target下面，勾选<code>Use MicroLIB</code>，这个具体什么原因笔者还未了解清楚，只知道如果不选则 LPUART发送数据会卡住，无法继续执行代码（但调试可以），所以如果用户在使用时发现拷了代码进去却没反应，有可能就是卡住了，记得检查这里</li>
+<li>debug下面，选 use <code>J-LINK / J-TRACE Cortex</code>，虽然文档说是用的 STLINK V2-1，但实际插上之后显示的是JLINK设备，具体为什么也不清楚。然后在setting里面port选<code>SW</code></li>
+</ul>
+<p>若还有其它的问题，会在下载时报错，根据报错信息应该也能很快解决，只需耐心读</p>
+<h1 id="code">Code</h1>
+<p>编程要学会重定义 <code>printf</code>函数，具体做法是在main函数里：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;stdio.h&#34;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fputc</span>(<span style="color:#66d9ef">int</span> ch, FILE <span style="color:#f92672">*</span>f)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">HAL_UART_Transmit</span>(<span style="color:#f92672">&amp;</span>hlpuart1, (<span style="color:#66d9ef">uint8_t</span> <span style="color:#f92672">*</span>)<span style="color:#f92672">&amp;</span>ch, <span style="color:#ae81ff">1</span> , <span style="color:#ae81ff">0xffff</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ch;
+</span></span><span style="display:flex;"><span>} 
+</span></span></code></pre></div><p>此外注意自己加的内容放到注释里面写的 Begin - End 之间，这样在修改CubeMX之后重新生成不会把自己的代码覆盖掉</p>
+<p>建议在VScode或者其它编辑器进行编辑，keil IAR 等软件的代码编辑界面都是否老古董，用着难受，具体配置请自行搜索</p>
+<p>整个代码用的是HAL库，虽然在源文件里面看不到对应的include信息，但其实在Keil里面它是自己预定义过了的</p>
+<p>网上找到教程有些不是HAL库，因此函数名不一样，HAL库的函数一般都会以<code>HAL_</code>开头，注意不要无脑CV 😊</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/techBlog/tags/stm32/" rel="tag">STM32</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Victor Liu avatar" src="/techBlog/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Victor Liu</span>
+	</div>
+	<div class="authorbox__description">
+		Victor Liu&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/techBlog/post/basic-elements/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Basic HTML Elements</p>
+		</a>
+	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/techBlog/post/minimum-spanning-tree/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">最小生成树</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://zvictorliu.github.io/techBlog/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/getting-started/">Get start</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/customization/">Customization</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/faq/">Frequently asked questions (FAQ)</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/post/minimum-spanning-tree/">最小生成树</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/post/nucleol496zg/">基于NUCLEO-L496ZG开发</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/techBlog/categories/coding/">coding</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/techBlog/categories/development/">Development</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/techBlog/categories/golang/">golang</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/basic-elements/" title="Basic Elements">Basic Elements</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/css/" title="CSS">CSS</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/development/" title="development">development</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/go/" title="go">go</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/golang/" title="golang">golang</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/graph/" title="Graph">Graph</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/html/" title="HTML">HTML</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/hugo/" title="hugo">hugo</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/installation/" title="Installation">Installation</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/qt/" title="Qt">Qt</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/stm32/" title="STM32">STM32</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/templates/" title="templates">templates</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/themes/" title="themes">themes</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/%E4%B8%B2%E5%8F%A3/" title="串口">串口</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2023 Tech Blog.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/techBlog/js/menu.js"></script>
+</body>
+</html>
