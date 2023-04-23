@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>STM32 on Tech Blog</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/stm32/</link>
+    <description>Recent content in STM32 on Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 21 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/stm32/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于NUCLEO-L496ZG开发</title>
+      <link>https://zvictorliu.github.io/techBlog/post/nucleol496zg/</link>
+      <pubDate>Fri, 21 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://zvictorliu.github.io/techBlog/post/nucleol496zg/</guid>
+      <description>&lt;p&gt;本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
