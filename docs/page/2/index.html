@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
+	<meta name="generator" content="Hugo 0.111.3">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Installation - Tech Blog</title>
+	<title>Tech Blog</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
-	<meta name="description" content="">
-		<meta property="og:title" content="Installation" />
+	<meta name="description" content="Victor Liu&#39;s Personal blog about technology">
+		<meta property="og:title" content="Tech Blog" />
 <meta property="og:description" content="Victor Liu&#39;s Personal blog about technology" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://zvictorliu.github.io/techBlog/tags/installation/" />
+<meta property="og:url" content="https://zvictorliu.github.io/techBlog/" />
 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -19,7 +20,7 @@
 
 	<link rel="stylesheet" href="/techBlog/css/style.css">
 	
-	<link rel="alternate" type="application/rss+xml" href="/techBlog/tags/installation/index.xml" title="Tech Blog">
+	<link rel="alternate" type="application/rss+xml" href="/techBlog/index.xml" title="Tech Blog">
 
 	<link rel="shortcut icon" href="/techBlog/favicon.ico">
 		
@@ -80,33 +81,38 @@
 			<div class="primary">
 			
 <main class="main list" role="main">
-	<header class="main__header">
-		<h1 class="main__title">Installation</h1>
-	</header><article class="list__item post">
+	<article class="list__item post">
 	
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="/techBlog/docs/getting-started/" rel="bookmark">
-			Get start
+			<a href="/techBlog/post/qt-creator-serialport/" rel="bookmark">
+			Qt 开发上位机程序
 			</a>
 		</h2>
-		<p class="list__lead post__lead">This article helps you get started with the Mainroad theme, including installation and minimal configuration.</p>
-		<div class="list__meta meta">
-<div class="meta__item-datetime meta__item">
-	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2022-01-24T14:00:00Z">January 24, 2022</time></div></div>
+		<p class="list__lead post__lead">显示程序开发</p>
+		<div class="list__meta meta"><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/techBlog/categories/development/" rel="category">Development</a>
+	</span>
+</div></div>
 	</header>
 	<div class="content list__excerpt post__content clearfix">
-		<p>Welcome to the Mainroad theme documentation. This quick start guide covers Mainroad theme installation and minimal
-configuration and is intended for intermediate to advanced users. To understand this guide, you need to be familiar
-with the <a href="https://gohugo.io/">Hugo</a> static site generator.</p>
+		利用Qt creator 开发一个上位机程序，能够实现显示单片机返回的数据，增加展示效果，但可调式性必然没有以及成熟的好
+基本认识 Qt 生成一个主窗口，然后会陷入事件循环，直至用户关闭程序才会执行main函数后面的代码
+Qt 生成的窗口样式是和操作系统相关的，Qt 可以设置一些属性，但一些特别的属性依赖于系统主题，Qt 无法控制，所以改了也没有用
+QMainWindow继承自QWidget，增加了菜单栏、状态栏之类的东西，比如经常有看到的“文件、工具”等待选项，这些并非是必要的
+在ui界面上的东西，是属于ui这个对象的成员
+自定义窗口 如果完全自定义则关闭、最大化、最小化这些都要自己配置了
+实在太麻烦，还是就这样了吧，win11的也不算丑了
 	</div>
 </article>
 </main>
 
+<div class="pagination">
+	<a class="pagination__item pagination__item--prev btn" href="/techBlog/">«</a>
+	<span class="pagination__item pagination__item--current">2/2</span>
+</div>
 
 			</div>
-			
-<aside class="sidebar"><div class="widget-search widget">
+			<aside class="sidebar"><div class="widget-search widget">
 	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
 		<label>
 			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">

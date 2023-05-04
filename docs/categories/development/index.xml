@@ -6,7 +6,16 @@
     <description>Recent content in Development on Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 21 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于HAL库的OLED驱动方法 (SPI)</title>
+      <link>https://zvictorliu.github.io/techBlog/post/stm32l4-oled/</link>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://zvictorliu.github.io/techBlog/post/stm32l4-oled/</guid>
+      <description>&lt;p&gt;本文以STM32L496为例介绍如何在HAL库下驱动OLED&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>基于NUCLEO-L496ZG开发</title>
       <link>https://zvictorliu.github.io/techBlog/post/nucleol496zg/</link>

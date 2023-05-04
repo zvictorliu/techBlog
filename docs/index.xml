@@ -6,7 +6,7 @@
     <description>Recent content on Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Get start</title>
       <link>https://zvictorliu.github.io/techBlog/docs/getting-started/</link>
@@ -37,6 +37,24 @@ and more.&lt;/p&gt;</description>
       <guid>https://zvictorliu.github.io/techBlog/docs/faq/</guid>
       <description>&lt;p&gt;Browse this FAQ page to find answers to frequently asked questions that have not been covered elsewhere
 in the documentation.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>基于HAL库的OLED驱动方法 (SPI)</title>
+      <link>https://zvictorliu.github.io/techBlog/post/stm32l4-oled/</link>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://zvictorliu.github.io/techBlog/post/stm32l4-oled/</guid>
+      <description>&lt;p&gt;本文以STM32L496为例介绍如何在HAL库下驱动OLED&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>拓扑排序</title>
+      <link>https://zvictorliu.github.io/techBlog/post/topological-sort/</link>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://zvictorliu.github.io/techBlog/post/topological-sort/</guid>
+      <description>&lt;p&gt;拓扑排序简单来说就是剥皮&lt;/p&gt;</description>
     </item>
     
     <item>
