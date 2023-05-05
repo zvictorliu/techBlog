@@ -109,6 +109,22 @@ $$
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>这个先后顺序应该是有影响的，还是画矩阵图比较好记</p>
+<h2 id="bellman-ford-算法">Bellman-Ford 算法</h2>
+<p>适合那种限制经过的边数、节点数的问题</p>
+<p>核心算法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> m; j<span style="color:#f92672">++</span>) {<span style="color:#75715e">//对m条边进行循环
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">auto</span> edge <span style="color:#f92672">=</span> edges[j];
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 松弛操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (distance[edge.to] <span style="color:#f92672">&gt;</span> distance[edge.from] <span style="color:#f92672">+</span> edge.weight ){ 
+</span></span><span style="display:flex;"><span>        distance[edge.to] <span style="color:#f92672">=</span> distance[edge.from] <span style="color:#f92672">+</span> edge.weight;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>刚开始源点到其它节点的距离都是INF，那么i=0时只有从源点出发的边能够被修改，完成后代表的是只能经过1点边情况下的最短路径</li>
+<li>依次类推，遍历完<code>i</code>时距离表表示的是最多能经过<code>i+1</code>条边所用的最短距离</li>
+</ul>
 		</div>
 		<footer class="post__footer">
 			

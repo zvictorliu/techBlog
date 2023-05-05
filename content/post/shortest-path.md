@@ -39,3 +39,26 @@ for (int k = 0; k < v; ++k){
 ```
 
 这个先后顺序应该是有影响的，还是画矩阵图比较好记
+
+## Bellman-Ford 算法
+
+适合那种限制经过的边数、节点数的问题
+
+核心算法：
+
+```c++
+for (auto i = 0; i < n - 1; i++) {
+    for (auto j = 0; j < m; j++) {//对m条边进行循环
+      auto edge = edges[j];
+      // 松弛操作
+      if (distance[edge.to] > distance[edge.from] + edge.weight ){ 
+        distance[edge.to] = distance[edge.from] + edge.weight;
+      }
+    }
+}
+```
+
+
+
+- 刚开始源点到其它节点的距离都是INF，那么i=0时只有从源点出发的边能够被修改，完成后代表的是只能经过1点边情况下的最短路径
+- 依次类推，遍历完`i`时距离表表示的是最多能经过`i+1`条边所用的最短距离

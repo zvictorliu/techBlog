@@ -136,3 +136,21 @@ void OLED_Init(void)
 #define OLED_CS_Set()  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET)
 ```
 
+## 个性化
+
+如果一直放在while循环里循环显示，则会阻塞到其它功能
+
+其实只需要show一次即可
+
+```c
+HAL_Delay(500);
+OLED_Clear();
+OLED_ShowNum(103,48,24,3,16); // show num 24
+OLED_Refresh();
+```
+
+103,48 是坐标；3是位数，表示显示的是`024`；16是字号大小
+
+注意，字号只有16，24，32，64，分别对应于`oledfont.h`的Hzk1~4
+
+用取模软件得到字符，放入Hzk数组其中即可，可参考其几个Show函数的实现

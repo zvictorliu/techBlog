@@ -199,7 +199,16 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_CS_Clr()  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET)</span><span style="color:#75715e">//CS
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_CS_Set()  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET)
-</span></span></span></code></pre></div>
+</span></span></span></code></pre></div><h2 id="个性化">个性化</h2>
+<p>如果一直放在while循环里循环显示，则会阻塞到其它功能</p>
+<p>其实只需要show一次即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">HAL_Delay</span>(<span style="color:#ae81ff">500</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">OLED_Clear</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">OLED_ShowNum</span>(<span style="color:#ae81ff">103</span>,<span style="color:#ae81ff">48</span>,<span style="color:#ae81ff">24</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">16</span>); <span style="color:#75715e">// show num 24
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">OLED_Refresh</span>();
+</span></span></code></pre></div><p>103,48 是坐标；3是位数，表示显示的是<code>024</code>；16是字号大小</p>
+<p>注意，字号只有16，24，32，64，分别对应于<code>oledfont.h</code>的Hzk1~4</p>
+<p>用取模软件得到字符，放入Hzk数组其中即可，可参考其几个Show函数的实现</p>
 		</div>
 		<footer class="post__footer">
 			
