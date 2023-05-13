@@ -54,7 +54,7 @@ CubeMX的不同版本界面差别挺大，笔者用的是 STM32CubeMX-Win [6.8.0
 
 在keil上需要安装l4系列的pack，注意由于官网的pack一般是新版，可能直接安装就旧版Keil上会出现这样的问题：
 
-<img src="F:\HugoPrjs\techBlog\content\post\nucleol496zg.assets\image-20230221213842446.png" alt="image-20230221213842446" style="zoom:50%;" />
+
 
 这个并不太会影响正常使用，作为强迫症患者最好换新版Keil
 

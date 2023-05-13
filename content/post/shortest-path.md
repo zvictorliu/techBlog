@@ -51,8 +51,9 @@ for (auto i = 0; i < n - 1; i++) {
     for (auto j = 0; j < m; j++) {//对m条边进行循环
       auto edge = edges[j];
       // 松弛操作
-      if (distance[edge.to] > distance[edge.from] + edge.weight ){ 
-        distance[edge.to] = distance[edge.from] + edge.weight;
+       auto dist_tmp = distance; // 保证在同一次下彼此不受影响
+      if (distance[edge.to] > dist_tmp[edge.from] + edge.weight ){  // 小心溢出
+        distance[edge.to] = dist_tmp[edge.from] + edge.weight;
       }
     }
 }
