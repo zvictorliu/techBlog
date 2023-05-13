@@ -96,10 +96,14 @@
 <p>网络上也有不少用HAL库的，但实验并未成功，目前笔者也没有想清楚为什么，此处仅介绍笔者成功的一种驱动方法</p>
 <h2 id="核心">核心</h2>
 <p>核心完全是GPIO口的配置，在<code>oled.c</code>文件内存在一个<code>OLED_Init()</code>函数，这里面会对GPIO口重新配置，因此在开发时配置应注意一致，连线应该以这里的为准</p>
+<p>而且这里似乎最好还是要重新配置一下GPIO，因为跟cube生成的还是有些不一样，保险起见还是别注释掉这部分</p>
+<p>有些这里之前给注释掉了，实验没能成功，就不用这种方法了</p>
+<p>最方便的就是别改，就按着给定连线就行，马上就能用</p>
+<p>为了能够增加灵活性我将这里进行了修改，以后只需要定义好同样的别名就行了</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">OLED_Init</span>(<span style="color:#66d9ef">void</span>)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// ! 这里要注意引脚
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  GPIO_InitTypeDef GPIO_InitStruct;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  GPIO_InitTypeDef GPIO_InitStruct;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* GPIO Ports Clock Enable */</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">__HAL_RCC_GPIOH_CLK_ENABLE</span>();
@@ -107,46 +111,50 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">__HAL_RCC_GPIOC_CLK_ENABLE</span>();
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">__HAL_RCC_GPIOD_CLK_ENABLE</span>();
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">__HAL_RCC_GPIOB_CLK_ENABLE</span>();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pin Output Level */</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_WritePin</span>(GPIOA, GPIO_PIN_4<span style="color:#f92672">|</span>GPIO_PIN_5<span style="color:#f92672">|</span>GPIO_PIN_7, GPIO_PIN_SET);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pin Output Level */</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_WritePin</span>(GPIOC, GPIO_PIN_12, GPIO_PIN_SET);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pin Output Level */</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_WritePin</span>(GPIOD, GPIO_PIN_2, GPIO_PIN_SET); 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pin Output Level */</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_WritePin</span>(GPIOB, GPIO_PIN_5<span style="color:#f92672">|</span>GPIO_PIN_6<span style="color:#f92672">|</span>GPIO_PIN_7, GPIO_PIN_SET);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pins : PA4 PA5 PA7 */</span>
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pin <span style="color:#f92672">=</span> GPIO_PIN_4<span style="color:#f92672">|</span>GPIO_PIN_5<span style="color:#f92672">|</span>GPIO_PIN_7;
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP;
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">OLED_SCLK_Set</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">OLED_SDIN_Set</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">OLED_CS_Set</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">OLED_RST_Set</span>();
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">OLED_DC_Set</span>();
+</span></span><span style="display:flex;"><span>	LED_ON;	
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pins*/</span>
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pin <span style="color:#f92672">=</span> SCK_Pin;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP; <span style="color:#75715e">//这里和spi.c里面还是不一样
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
 </span></span><span style="display:flex;"><span>  GPIO_InitStruct.Speed <span style="color:#f92672">=</span> GPIO_SPEED_FREQ_HIGH;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(GPIOA, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(SCK_GPIO_Port, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pin : PC12 */</span>
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pin <span style="color:#f92672">=</span> GPIO_PIN_12;
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP;
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
+</span></span><span style="display:flex;"><span>    GPIO_InitStruct.Pin <span style="color:#f92672">=</span> SDA_Pin;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP; <span style="color:#75715e">//这里和spi.c里面还是不一样
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
 </span></span><span style="display:flex;"><span>  GPIO_InitStruct.Speed <span style="color:#f92672">=</span> GPIO_SPEED_FREQ_HIGH;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(GPIOC, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(SDA_GPIO_Port, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pin : PD2 */</span>
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pin <span style="color:#f92672">=</span> GPIO_PIN_2;
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP;
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
+</span></span><span style="display:flex;"><span>    GPIO_InitStruct.Pin <span style="color:#f92672">=</span> OLED_CS_Pin;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP; <span style="color:#75715e">//这里和spi.c里面还是不一样
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
 </span></span><span style="display:flex;"><span>  GPIO_InitStruct.Speed <span style="color:#f92672">=</span> GPIO_SPEED_FREQ_HIGH;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(GPIOD, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(OLED_CS_GPIO_Port, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pins : PB5 PB6 PB7 */</span>
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pin <span style="color:#f92672">=</span> GPIO_PIN_5<span style="color:#f92672">|</span>GPIO_PIN_6<span style="color:#f92672">|</span>GPIO_PIN_7;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pin <span style="color:#f92672">=</span> LD2_Pin;
 </span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP;
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
-</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Speed <span style="color:#f92672">=</span> GPIO_SPEED_FREQ_HIGH;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_NOPULL;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Speed <span style="color:#f92672">=</span> GPIO_SPEED_FREQ_LOW;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(GPIOB, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pin <span style="color:#f92672">=</span> OLED_RST_Pin;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Speed <span style="color:#f92672">=</span> GPIO_SPEED_FREQ_HIGH;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(OLED_RST_GPIO_Port, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/*Configure GPIO pin : PtPin */</span>
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pin <span style="color:#f92672">=</span> OLED_DC_Pin;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Mode <span style="color:#f92672">=</span> GPIO_MODE_OUTPUT_PP;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Pull <span style="color:#f92672">=</span> GPIO_PULLUP;
+</span></span><span style="display:flex;"><span>  GPIO_InitStruct.Speed <span style="color:#f92672">=</span> GPIO_SPEED_FREQ_HIGH;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">HAL_GPIO_Init</span>(OLED_DC_GPIO_Port, <span style="color:#f92672">&amp;</span>GPIO_InitStruct);
 </span></span><span style="display:flex;"><span>	
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">OLED_RST_Clr</span>();
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">HAL_Delay</span>(<span style="color:#ae81ff">200</span>);
@@ -182,24 +190,22 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">OLED_WR_Byte</span>(<span style="color:#ae81ff">0xAF</span>,OLED_CMD);
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">OLED_Clear</span>();
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>有些这里之前给注释掉了，实验没能成功，就不用这种方法了</p>
-<p>最方便的就是别改，就按着给定连线就行</p>
-<p>如果真要改，那么就是<code>oled.h</code>这里的重define要改，<code>GPIO_Init()</code>也要跟着改，具体可参照<code>gpio.h</code>的初始化方式</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define OLED_SCLK_Clr() HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5, GPIO_PIN_RESET)</span><span style="color:#75715e">//CLK
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_SCLK_Set() HAL_GPIO_WritePin(GPIOA,GPIO_PIN_5, GPIO_PIN_SET)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#define OLED_SCLK_Clr() HAL_GPIO_WritePin(SCK_GPIO_Port, SCK_Pin, GPIO_PIN_RESET);</span><span style="color:#75715e">//CLK
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_SCLK_Set() HAL_GPIO_WritePin(SCK_GPIO_Port, SCK_Pin, GPIO_PIN_SET);
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_SDIN_Clr() HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7, GPIO_PIN_RESET)</span><span style="color:#75715e">//DIN
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_SDIN_Set() HAL_GPIO_WritePin(GPIOA,GPIO_PIN_7, GPIO_PIN_SET)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_SDIN_Clr() HAL_GPIO_WritePin(SDA_GPIO_Port, SDA_Pin, GPIO_PIN_RESET)</span><span style="color:#75715e">//DIN
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_SDIN_Set() HAL_GPIO_WritePin(SDA_GPIO_Port, SDA_Pin, GPIO_PIN_SET)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_RST_Clr() HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2, GPIO_PIN_RESET)</span><span style="color:#75715e">//RST
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_RST_Set() HAL_GPIO_WritePin(GPIOD,GPIO_PIN_2, GPIO_PIN_SET)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_RST_Clr() HAL_GPIO_WritePin(OLED_RST_GPIO_Port, OLED_RST_Pin, GPIO_PIN_RESET)</span><span style="color:#75715e">//RST
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_RST_Set() HAL_GPIO_WritePin(OLED_RST_GPIO_Port, OLED_RST_Pin, GPIO_PIN_SET)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_DC_Clr() HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5, GPIO_PIN_RESET)</span><span style="color:#75715e">//DC
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_DC_Set() HAL_GPIO_WritePin(GPIOB,GPIO_PIN_5, GPIO_PIN_SET)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_CS_Clr()  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_RESET)</span><span style="color:#75715e">//CS
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_CS_Set()  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4, GPIO_PIN_SET)
-</span></span></span></code></pre></div><h2 id="个性化">个性化</h2>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_DC_Clr() HAL_GPIO_WritePin(OLED_DC_GPIO_Port, OLED_DC_Pin, GPIO_PIN_RESET)</span><span style="color:#75715e">//DC
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_DC_Set() HAL_GPIO_WritePin(OLED_DC_GPIO_Port, OLED_DC_Pin, GPIO_PIN_SET)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> 		     
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define OLED_CS_Clr()  HAL_GPIO_WritePin(OLED_CS_GPIO_Port, OLED_CS_Pin, GPIO_PIN_RESET)</span><span style="color:#75715e">//CS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#define OLED_CS_Set()  HAL_GPIO_WritePin(OLED_CS_GPIO_Port, OLED_CS_Pin, GPIO_PIN_SET)
+</span></span></span></code></pre></div><p>两部分是密切相关的</p>
+<h2 id="个性化">个性化</h2>
 <p>如果一直放在while循环里循环显示，则会阻塞到其它功能</p>
 <p>其实只需要show一次即可</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">HAL_Delay</span>(<span style="color:#ae81ff">500</span>);
@@ -243,6 +249,12 @@
 			<p class="pager__title">拓扑排序</p>
 		</a>
 	</div>
+	<div class="pager__item pager__item--next">
+		<a class="pager__link" href="/techBlog/post/stm32l4-timer/" rel="next">
+			<span class="pager__subtitle">Next&thinsp;»</span>
+			<p class="pager__title">STM32 定时器测量高频率</p>
+		</a>
+	</div>
 </nav>
 
 
@@ -263,8 +275,8 @@
 			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/getting-started/">Get start</a></li>
 			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/customization/">Customization</a></li>
 			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/faq/">Frequently asked questions (FAQ)</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/post/stm32l4-timer/">STM32 定时器测量高频率</a></li>
 			<li class="widget__item"><a class="widget__link" href="/techBlog/post/stm32l4-oled/">基于HAL库的OLED驱动方法 (SPI)</a></li>
-			<li class="widget__item"><a class="widget__link" href="/techBlog/post/topological-sort/">拓扑排序</a></li>
 		</ul>
 	</div>
 </div>

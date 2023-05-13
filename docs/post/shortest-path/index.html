@@ -116,8 +116,9 @@ $$
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> m; j<span style="color:#f92672">++</span>) {<span style="color:#75715e">//对m条边进行循环
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">auto</span> edge <span style="color:#f92672">=</span> edges[j];
 </span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 松弛操作
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (distance[edge.to] <span style="color:#f92672">&gt;</span> distance[edge.from] <span style="color:#f92672">+</span> edge.weight ){ 
-</span></span><span style="display:flex;"><span>        distance[edge.to] <span style="color:#f92672">=</span> distance[edge.from] <span style="color:#f92672">+</span> edge.weight;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>       <span style="color:#66d9ef">auto</span> dist_tmp <span style="color:#f92672">=</span> distance; <span style="color:#75715e">// 保证在同一次下彼此不受影响
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">if</span> (distance[edge.to] <span style="color:#f92672">&gt;</span> dist_tmp[edge.from] <span style="color:#f92672">+</span> edge.weight ){  <span style="color:#75715e">// 小心溢出
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        distance[edge.to] <span style="color:#f92672">=</span> dist_tmp[edge.from] <span style="color:#f92672">+</span> edge.weight;
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -185,8 +186,8 @@ $$
 			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/getting-started/">Get start</a></li>
 			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/customization/">Customization</a></li>
 			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/faq/">Frequently asked questions (FAQ)</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/post/stm32l4-timer/">STM32 定时器测量高频率</a></li>
 			<li class="widget__item"><a class="widget__link" href="/techBlog/post/stm32l4-oled/">基于HAL库的OLED驱动方法 (SPI)</a></li>
-			<li class="widget__item"><a class="widget__link" href="/techBlog/post/topological-sort/">拓扑排序</a></li>
 		</ul>
 	</div>
 </div>

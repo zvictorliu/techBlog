@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>STM32 定时器测量高频率 - Tech Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="STM32 定时器测量高频率" />
+<meta property="og:description" content="基于定时器实现对较高频率的测量" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zvictorliu.github.io/techBlog/post/stm32l4-timer/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-05-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-13T00:00:00+00:00" />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+
+	<link rel="stylesheet" href="/techBlog/css/style.css">
+	
+
+	<link rel="shortcut icon" href="/techBlog/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo">
+		<a class="logo__link" href="/techBlog/" title="Tech Blog" rel="home">
+			<div class="logo__item logo__text">
+					<div class="logo__title">Tech Blog</div>
+					<div class="logo__tagline">大争之世</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/techBlog/docs/getting-started/">
+				
+				<span class="menu__text">Get start</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/techBlog/docs/customization/">
+				
+				<span class="menu__text">Customization</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/techBlog/docs/faq/">
+				
+				<span class="menu__text">FAQ</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/techBlog/about/">
+				
+				<span class="menu__text">About</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">STM32 定时器测量高频率</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2023-05-13T00:00:00Z">May 13, 2023</time></div><div class="meta__item-categories meta__item"><svg class="meta__icon icon icon-category" width="16" height="16" viewBox="0 0 16 16"><path d="m7 2l1 2h8v11h-16v-13z"/></svg><span class="meta__text"><a class="meta__link" href="/techBlog/categories/development/" rel="category">Development</a>
+	</span>
+</div></div>
+		</header>
+		<div class="content post__content clearfix">
+			<p>基于定时器实现对较高频率的测量</p>
+<h1 id="捕获模式测周法">捕获模式（测周法）</h1>
+<p>定时器可以对输入的PWM波进行边缘检测，同时也可以发出PWM波</p>
+<p>定时器内部对自己在对时钟进行计数，到达一定值(<code>AAR</code>)后重载为0</p>
+<p>最开始想的是测频法，因为这样不仅可以测周期还可以调整极性以测占空比，但实验发现在频率上了kHz就有问题了，而且是难以言明的问题，捕获和计数器变得不靠谱起来，所以这个方法也还是只适合低频</p>
+<h2 id="生成-pwm波">生成 PWM波</h2>
+<p>先设置一个定时器的时钟为内部时钟<code>Internal Clock</code>，值就是时钟图里的HCLK，配置一个通道为<code>PWM Generation CHx</code></p>
+<p>然后设置它的：</p>
+<ul>
+<li>PSC：预分频系数，HCLK / (PSC+1) 才是定时器的内部时钟频率</li>
+<li>counter period：这个决定了PWM波的周期（注意也要-1）</li>
+<li>pulse: 这个和period决定占空比</li>
+</ul>
+<p>在main.c里面使用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">HAL_TIM_PWM_Start</span>(<span style="color:#f92672">&amp;</span>htim3, TIM_CHANNEL_1); <span style="color:#75715e">// 启动PWM
+</span></span></span></code></pre></div><p>如此便能生成了</p>
+<h2 id="内部时钟-捕获">内部时钟-捕获</h2>
+<p>通道选择<code>Input Capture Direct Mode</code></p>
+<p>然后内部时钟也是一样有个预分频系数可以设置</p>
+<p>然后设置AAR，自动重载值，计数器计到这个就会自动归0</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">HAL_TIM_Base_Start_IT</span>(<span style="color:#f92672">&amp;</span>htim4);
+</span></span></code></pre></div><p>这样其实就同时开启了捕获中断和溢出中断，也可以分别开启</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">_HAL_TIM_ENABLE_IT</span>(<span style="color:#f92672">&amp;</span>htim4, TIM_IT_UPDATE); <span style="color:#75715e">//溢出
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">HAL_TIM_IC_Start_IT</span>(<span style="color:#f92672">&amp;</span>htim4,TIM_CHANNEL_1); <span style="color:#75715e">// IC
+</span></span></span></code></pre></div><p>回调函数是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">HAL_TIM_PeriodElapsedCallback</span>(TIM_HandleTypeDef <span style="color:#f92672">*</span>htim); <span style="color:#75715e">// 溢出回调
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">HAL_TIM_IC_CaptureCallback</span>(TIM_HandleTypeDef <span style="color:#f92672">*</span>htim); <span style="color:#75715e">// 捕获回调函数
+</span></span></span></code></pre></div><p>修改极性的办法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">__HAL_TIM_SET_CAPTUREPOLARITY</span>(<span style="color:#f92672">&amp;</span>htim4,TIM_CHANNEL_1,TIM_INPUTCHANNELPOLARITY_FALLING); <span style="color:#75715e">//设置成下降沿触发
+</span></span></span></code></pre></div><h1 id="外部时钟测频法">外部时钟（测频法）</h1>
+<p>定时器的计数器所作用的时钟是可以改成外部时钟的</p>
+<p>最开始想到测频法，还是利用的捕获的方式，也就是自己定义一个变量，捕获一次就+1这种想法，这种由于回调函数内容变得只有一行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>cnt <span style="color:#f92672">++</span>;
+</span></span></code></pre></div><p>所以它确实能够提高测量的频率上限，但是在测到1MHz还是不行了</p>
+<p>本来打算麻烦队友改电路降低频率了，但是我又在睡着前想到：单片机有能力对50MHz的HCLK进行分频，那么肯定不会说1MHz的频率太快了来不及响应</p>
+<p>然后我想到之间把输入信号接到定时器上去，这样就和分频是一样的道理，肯定是能够记录到脉冲个数的</p>
+<p>事实确实如此</p>
+<p>定时器可以通过外部时钟触发计数，经过实验也得到验证，10MHz也不是问题了</p>
+<p><strong>配置方法：</strong></p>
+<p>CubeMX里面：定时器<code>Clock Source</code>选择<code>ETR2</code>即可，无需中断，无需配置channel，它有写死的一个<code>TIMx_ETR</code>通道，将外部信号接到这个就行了</p>
+<p><strong>main.c：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">HAL_TIM_Base_Start</span>(<span style="color:#f92672">&amp;</span>htim2);
+</span></span><span style="display:flex;"><span>TIM2<span style="color:#f92672">-&gt;</span>CNT <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span></code></pre></div><p>设以<code>TIM4</code>作为参考时钟，设置其溢出中断间隔为1s即1Hz，在其回调函数内读取TIM2的CNT即可</p>
+<p>就这么简单</p>
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/techBlog/tags/stm32/" rel="tag">STM32</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Victor Liu avatar" src="/techBlog/img/avatar.png" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Victor Liu</span>
+	</div>
+	<div class="authorbox__description">
+		Victor Liu&rsquo;s true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/techBlog/post/stm32l4-oled/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">基于HAL库的OLED驱动方法 (SPI)</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar"><div class="widget-search widget">
+	<form class="widget-search__form" role="search" method="get" action="https://google.com/search">
+		<label>
+			<input class="widget-search__field" type="search" placeholder="SEARCH…" value="" name="q" aria-label="SEARCH…">
+		</label>
+		<input class="widget-search__submit" type="submit" value="Search">
+		<input type="hidden" name="sitesearch" value="https://zvictorliu.github.io/techBlog/">
+	</form>
+</div>
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/getting-started/">Get start</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/customization/">Customization</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/docs/faq/">Frequently asked questions (FAQ)</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/post/stm32l4-timer/">STM32 定时器测量高频率</a></li>
+			<li class="widget__item"><a class="widget__link" href="/techBlog/post/stm32l4-oled/">基于HAL库的OLED驱动方法 (SPI)</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-categories widget">
+	<h4 class="widget__title">Categories</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item">
+				<a class="widget__link" href="/techBlog/categories/coding/">coding</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/techBlog/categories/development/">Development</a></li>
+			<li class="widget__item">
+				<a class="widget__link" href="/techBlog/categories/golang/">golang</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/basic-elements/" title="Basic Elements">Basic Elements</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/css/" title="CSS">CSS</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/development/" title="development">development</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/go/" title="go">go</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/golang/" title="golang">golang</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/html/" title="HTML">HTML</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/hugo/" title="hugo">hugo</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/installation/" title="Installation">Installation</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/qt/" title="Qt">Qt</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/stm32/" title="STM32">STM32</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/templates/" title="templates">templates</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/themes/" title="themes">themes</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/%E4%B8%B2%E5%8F%A3/" title="串口">串口</a>
+		<a class="widget-taglist__link widget__link btn" href="/techBlog/tags/%E5%9B%BE/" title="图">图</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2023 Tech Blog.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/techBlog/js/menu.js"></script>
+</body>
+</html>
