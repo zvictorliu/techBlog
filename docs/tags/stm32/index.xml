@@ -1,38 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>STM32 on Tech Blog</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/stm32/</link>
-    <description>Recent content in STM32 on Tech Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sat, 13 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/stm32/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>STM32 定时器测量高频率</title>
-      <link>https://zvictorliu.github.io/techBlog/post/stm32l4-timer/</link>
-      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/stm32l4-timer/</guid>
-      <description>&lt;p&gt;基于定时器实现对较高频率的测量&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>基于HAL库的OLED驱动方法 (SPI)</title>
-      <link>https://zvictorliu.github.io/techBlog/post/stm32l4-oled/</link>
-      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/stm32l4-oled/</guid>
-      <description>&lt;p&gt;本文以STM32L496为例介绍如何在HAL库下驱动OLED&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>基于NUCLEO-L496ZG开发</title>
-      <link>https://zvictorliu.github.io/techBlog/post/nucleol496zg/</link>
-      <pubDate>Fri, 21 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/nucleol496zg/</guid>
-      <description>&lt;p&gt;本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>STM32 - Tag - My New Hugo Site</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/stm32/</link>
+        <description>STM32 - Tag - My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/stm32/" rel="self" type="application/rss+xml" /><item>
+    <title>STM32 定时器测量高频率</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</link>
+    <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</guid>
+    <description><![CDATA[<p>基于定时器实现对较高频率的测量</p>]]></description>
+</item>
+<item>
+    <title>基于HAL库的OLED驱动方法 (SPI)</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/stm32l4-oled/</link>
+    <pubDate>Thu, 04 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/stm32l4-oled/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://www.waveshare.net/photo/LCD/1.5inch-OLED-Module/1.5inch-OLED-Module-1.jpg" referrerpolicy="no-referrer">
+            </div><p>本文以STM32L496为例介绍如何在HAL库下驱动OLED</p>]]></description>
+</item>
+<item>
+    <title>基于NUCLEO-L496ZG开发</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/nucleol496zg/</link>
+    <pubDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/nucleol496zg/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png" referrerpolicy="no-referrer">
+            </div><p>本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法</p>]]></description>
+</item>
+</channel>
 </rss>

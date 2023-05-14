@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>基于NUCLEO-L496ZG开发 - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="基于NUCLEO-L496ZG开发" />
+<meta property="og:description" content="本文基于STM32CubeMX &#43; Keil5 的开发，介绍该型号的配置和使用方法" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zvictorliu.github.io/techBlog/posts/nucleol496zg/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-04-21T00:00:00+00:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于NUCLEO-L496ZG开发"/>
+<meta name="twitter:description" content="本文基于STM32CubeMX &#43; Keil5 的开发，介绍该型号的配置和使用方法"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zvictorliu.github.io/techBlog/posts/nucleol496zg/" /><link rel="prev" href="https://zvictorliu.github.io/techBlog/posts/theme-documentation-basics/" /><link rel="next" href="https://zvictorliu.github.io/techBlog/posts/qt-creator-serialport/" /><link rel="stylesheet" href="/techBlog/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "基于NUCLEO-L496ZG开发",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/nucleol496zg\/"
+        },"genre": "posts","keywords": "STM32","wordcount":  94 ,
+        "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/nucleol496zg\/","datePublished": "2023-04-21T00:00:00+00:00","dateModified": "2023-04-21T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Zongwei"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/techBlog/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/techBlog/posts/"> Posts </a><a class="menu-item" href="/techBlog/tags/"> Tags </a><a class="menu-item" href="/techBlog/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/techBlog/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/techBlog/posts/" title="">Posts</a><a class="menu-item" href="/techBlog/tags/" title="">Tags</a><a class="menu-item" href="/techBlog/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">基于NUCLEO-L496ZG开发</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/development/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Development</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-04-21">2023-04-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;94 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png"
+        title="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#选型">选型</a></li>
+    <li><a href="#配置">配置</a></li>
+    <li><a href="#生成代码">生成代码</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法</p>
+<h1 id="写在前面">写在前面</h1>
+<p>重要手册：</p>
+<p><a href="https://www.st.com/content/ccc/resource/technical/document/user_manual/group0/6e/c2/81/e8/92/5f/41/cc/DM00368330/files/DM00368330.pdf/jcr:content/translations/en.DM00368330.pdf" target="_blank" rel="noopener noreffer ">UM2179: STM32 Nucleo-144 boards (MB1312)</a> 是NUCLEO-144系列开发板的相关手册，可谓最重要的参考文档</p>
+<p><a href="https://www.st.com/resource/en/datasheet/stm32l496zg.pdf" target="_blank" rel="noopener noreffer ">DS11585</a> 是板载的MCU手册，用处不大，现在基本不会用裸机</p>
+<p>STM32L073xx_User_Manual.chm 这个一般位于cube安装的pack里面（\STM32Cube\Repository\STM32Cube_FW_L0_V1.12.2\Drivers\STM32L0xx_HAL_Driver），是HAL库的手册，用HAL库的都有类似的文档，因此不必纠结是不是L0系列</p>
+<h1 id="stm32cubemx">STM32CubeMX</h1>
+<p>CubeMX最直接的好处就是可视化配置+代码框架，在其中配置好生成代码即可</p>
+<p>CubeMX的不同版本界面差别挺大，笔者用的是 STM32CubeMX-Win <a href="https://www.st.com/zh/development-tools/stm32cubemx.html#get-software" target="_blank" rel="noopener noreffer ">6.8.0</a>，也建议紧跟时代用新版，免费软件没问题的</p>
+<h2 id="选型">选型</h2>
+<ul>
+<li>在<code>Pakages Manager</code> 里面安装L4系列的MCU Pack</li>
+<li>在new project里，直接选板子，板子和其MCU型号是对应了的，这样生成的界面才能看到一些重要管脚定义</li>
+</ul>
+<h2 id="配置">配置</h2>
+<p>主要需要配置 LPUART 和 ADC</p>
+<ul>
+<li>LPUART 用于和PC机直接通过USB线通信（因为它是和STLINK连接的），默认是使能了的，但还需要自行配置其波特率等参数</li>
+<li>ADC 要Enable其引脚，否则即使在引脚端选择了也还是黄色的而非绿色，要注意别忘了
+<ul>
+<li>如果需要用中断方式，记得配置 Global Interupt</li>
+</ul>
+</li>
+</ul>
+<h2 id="生成代码">生成代码</h2>
+<p>注意在generate code的时候记得选分文件（不是必要，但有利于阅读）</p>
+<p>并且要注意toolchain的最小版本是否合适</p>
+<p>项目名字一旦取定则无法更改</p>
+<h1 id="keil">Keil</h1>
+<p>在keil上需要安装l4系列的pack，注意由于官网的pack一般是新版，可能直接安装就旧版Keil上会出现这样的问题：</p>
+<p>这个并不太会影响正常使用，作为强迫症患者最好换新版Keil</p>
+<p>在Keil上的魔法棒（option for target)，要注意配置两个地方</p>
+<ul>
+<li>target下面，勾选<code>Use MicroLIB</code>，这个具体什么原因笔者还未了解清楚，只知道如果不选则 LPUART发送数据会卡住，无法继续执行代码（但调试可以），所以如果用户在使用时发现拷了代码进去却没反应，有可能就是卡住了，记得检查这里</li>
+<li>debug下面，选 use <code>J-LINK / J-TRACE Cortex</code>，虽然文档说是用的 STLINK V2-1，但实际插上之后显示的是JLINK设备，具体为什么也不清楚。然后在setting里面port选<code>SW</code></li>
+</ul>
+<p>若还有其它的问题，会在下载时报错，根据报错信息应该也能很快解决，只需耐心读</p>
+<h1 id="code">Code</h1>
+<p>编程要学会重定义 <code>printf</code>函数，具体做法是在main函数里：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;stdio.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">fputc</span><span class="p">(</span><span class="kt">int</span> <span class="n">ch</span><span class="p">,</span> <span class="n">FILE</span> <span class="o">*</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">HAL_UART_Transmit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hlpuart1</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">ch</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mh">0xffff</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ch</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> 
+</span></span></code></pre></div><p>此外注意自己加的内容放到注释里面写的 Begin - End 之间，这样在修改CubeMX之后重新生成不会把自己的代码覆盖掉</p>
+<p>建议在VScode或者其它编辑器进行编辑，keil IAR 等软件的代码编辑界面都是否老古董，用着难受，具体配置请自行搜索</p>
+<p>整个代码用的是HAL库，虽然在源文件里面看不到对应的include信息，但其实在Keil里面它是自己预定义过了的</p>
+<p>网上找到教程有些不是HAL库，因此函数名不一样，HAL库的函数一般都会以<code>HAL_</code>开头，注意不要无脑CV 😊</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-04-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://zvictorliu.github.io/techBlog/posts/nucleol496zg/" data-title="基于NUCLEO-L496ZG开发" data-hashtags="STM32"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://zvictorliu.github.io/techBlog/posts/nucleol496zg/" data-hashtag="STM32"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://zvictorliu.github.io/techBlog/posts/nucleol496zg/" data-title="基于NUCLEO-L496ZG开发"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://zvictorliu.github.io/techBlog/posts/nucleol496zg/" data-title="基于NUCLEO-L496ZG开发"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://zvictorliu.github.io/techBlog/posts/nucleol496zg/" data-title="基于NUCLEO-L496ZG开发" data-image="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/techBlog/tags/stm32/">STM32</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/techBlog/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/techBlog/posts/theme-documentation-basics/" class="prev" rel="prev" title="Theme Documentation - Basics"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Theme Documentation - Basics</a>
+            <a href="/techBlog/posts/qt-creator-serialport/" class="next" rel="next" title="Qt 开发上位机程序">Qt 开发上位机程序<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/techBlog/" target="_blank">Zongwei</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/techBlog/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/techBlog/js/theme.min.js"></script></body>
+</html>

@@ -1,38 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>图 on Tech Blog</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/%E5%9B%BE/</link>
-    <description>Recent content in 图 on Tech Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Thu, 04 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/%E5%9B%BE/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>拓扑排序</title>
-      <link>https://zvictorliu.github.io/techBlog/post/topological-sort/</link>
-      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/topological-sort/</guid>
-      <description>&lt;p&gt;拓扑排序简单来说就是剥皮&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>最短路问题</title>
-      <link>https://zvictorliu.github.io/techBlog/post/shortest-path/</link>
-      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/shortest-path/</guid>
-      <description>&lt;p&gt;此处主要主要介绍两种算法&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>最小生成树</title>
-      <link>https://zvictorliu.github.io/techBlog/post/minimum-spanning-tree/</link>
-      <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/minimum-spanning-tree/</guid>
-      <description>&lt;p&gt;此处主要记录最小生成树的个人理解，目标是为了个人复习，而不是为了讲清楚&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>图 - Tag - My New Hugo Site</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/%E5%9B%BE/</link>
+        <description>图 - Tag - My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 04 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/%E5%9B%BE/" rel="self" type="application/rss+xml" /><item>
+    <title>拓扑排序</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/topological-sort/</link>
+    <pubDate>Thu, 04 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/topological-sort/</guid>
+    <description><![CDATA[<p>拓扑排序简单来说就是剥皮</p>]]></description>
+</item>
+<item>
+    <title>最短路问题</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/shortest-path/</link>
+    <pubDate>Thu, 04 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/shortest-path/</guid>
+    <description><![CDATA[<p>此处主要主要介绍两种算法</p>]]></description>
+</item>
+<item>
+    <title>最小生成树</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/minimum-spanning-tree/</link>
+    <pubDate>Sun, 23 Apr 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/minimum-spanning-tree/</guid>
+    <description><![CDATA[<p>此处主要记录最小生成树的个人理解，目标是为了个人复习，而不是为了讲清楚</p>]]></description>
+</item>
+</channel>
 </rss>

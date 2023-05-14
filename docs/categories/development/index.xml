@@ -1,90 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Development on Tech Blog</title>
-    <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
-    <description>Recent content in Development on Tech Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sat, 13 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>STM32 定时器测量高频率</title>
-      <link>https://zvictorliu.github.io/techBlog/post/stm32l4-timer/</link>
-      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/stm32l4-timer/</guid>
-      <description>&lt;p&gt;基于定时器实现对较高频率的测量&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>基于HAL库的OLED驱动方法 (SPI)</title>
-      <link>https://zvictorliu.github.io/techBlog/post/stm32l4-oled/</link>
-      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/stm32l4-oled/</guid>
-      <description>&lt;p&gt;本文以STM32L496为例介绍如何在HAL库下驱动OLED&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>基于NUCLEO-L496ZG开发</title>
-      <link>https://zvictorliu.github.io/techBlog/post/nucleol496zg/</link>
-      <pubDate>Fri, 21 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/nucleol496zg/</guid>
-      <description>&lt;p&gt;本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Basic HTML Elements</title>
-      <link>https://zvictorliu.github.io/techBlog/post/basic-elements/</link>
-      <pubDate>Mon, 16 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/basic-elements/</guid>
-      <description>&lt;p&gt;The main purpose of this article is to make sure that all basic HTML Elements are decorated with CSS so as to not miss any possible elements when creating new themes for Hugo.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>https://zvictorliu.github.io/techBlog/post/hugo-template-primer/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/hugo-template-primer/</guid>
-      <description>&lt;p&gt;Hugo uses the excellent &lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt; &lt;a href=&#34;https://golang.org/pkg/html/template/&#34;&gt;html/template&lt;/a&gt; library for
-its template engine. It is an extremely lightweight engine that provides a very
-small amount of logic. In our experience that it is just the right amount of
-logic to be able to create a good static website. If you have used other
-template systems from different languages or frameworks you will find a lot of
-similarities in Go templates.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>https://zvictorliu.github.io/techBlog/post/getting-started-with-hugo/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/getting-started-with-hugo/</guid>
-      <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
-Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313 Corresponding pseudo commands:</description>
-    </item>
-    
-    <item>
-      <title>Qt 开发上位机程序</title>
-      <link>https://zvictorliu.github.io/techBlog/post/qt-creator-serialport/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/post/qt-creator-serialport/</guid>
-      <description>利用Qt creator 开发一个上位机程序，能够实现显示单片机返回的数据，增加展示效果，但可调式性必然没有以及成熟的好
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Development - Category - My New Hugo Site</title>
+        <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
+        <description>Development - Category - My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+    <title>STM32 定时器测量高频率</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</link>
+    <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</guid>
+    <description><![CDATA[<p>基于定时器实现对较高频率的测量</p>]]></description>
+</item>
+<item>
+    <title>基于HAL库的OLED驱动方法 (SPI)</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/stm32l4-oled/</link>
+    <pubDate>Thu, 04 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/stm32l4-oled/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://www.waveshare.net/photo/LCD/1.5inch-OLED-Module/1.5inch-OLED-Module-1.jpg" referrerpolicy="no-referrer">
+            </div><p>本文以STM32L496为例介绍如何在HAL库下驱动OLED</p>]]></description>
+</item>
+<item>
+    <title>Qt 开发上位机程序</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/qt-creator-serialport/</link>
+    <pubDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/qt-creator-serialport/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://picx.zhimg.com/v2-33907f5bcba1b1fcd3f8fd1bf95519b8_1440w.jpg?source=172ae18b" referrerpolicy="no-referrer">
+            </div>利用Qt creator 开发一个上位机程序，能够实现显示单片机返回的数据，增加展示效果，但可调式性必然没有以及成熟的好
 基本认识 Qt 生成一个主窗口，然后会陷入事件循环，直至用户关闭程序才会执行main函数后面的代码
 Qt 生成的窗口样式是和操作系统相关的，Qt 可以设置一些属性，但一些特别的属性依赖于系统主题，Qt 无法控制，所以改了也没有用
 QMainWindow继承自QWidget，增加了菜单栏、状态栏之类的东西，比如经常有看到的“文件、工具”等待选项，这些并非是必要的
 在ui界面上的东西，是属于ui这个对象的成员
 自定义窗口 如果完全自定义则关闭、最大化、最小化这些都要自己配置了
-实在太麻烦，还是就这样了吧，win11的也不算丑了</description>
-    </item>
-    
-  </channel>
+实在太麻烦，还是就这样了吧，win11的也不算丑了]]></description>
+</item>
+<item>
+    <title>基于NUCLEO-L496ZG开发</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/nucleol496zg/</link>
+    <pubDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/nucleol496zg/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png" referrerpolicy="no-referrer">
+            </div><p>本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法</p>]]></description>
+</item>
+</channel>
 </rss>

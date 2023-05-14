@@ -1,38 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on Tech Blog</title>
-    <link>https://zvictorliu.github.io/techBlog/categories/</link>
-    <description>Recent content in Categories on Tech Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sat, 13 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Development</title>
-      <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
-      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>coding</title>
-      <link>https://zvictorliu.github.io/techBlog/categories/coding/</link>
-      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/categories/coding/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://zvictorliu.github.io/techBlog/categories/golang/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://zvictorliu.github.io/techBlog/categories/golang/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - My New Hugo Site</title>
+        <link>https://zvictorliu.github.io/techBlog/categories/</link>
+        <description>Categories - Category - My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Development</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
+    <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/development/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>coding</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/coding/</link>
+    <pubDate>Thu, 04 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/coding/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Documentation</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/documentation/</link>
+    <pubDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/documentation/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
