@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/stm32l4-oled\/"
-        },"genre": "posts","keywords": "STM32","wordcount":  326 ,
+        },"genre": "posts","keywords": "STM32","wordcount":  331 ,
         "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/stm32l4-oled\/","datePublished": "2023-05-04T00:00:00+00:00","dateModified": "2023-05-04T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -101,7 +101,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">基于HAL库的OLED驱动方法 (SPI)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/development/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Development</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-04">2023-05-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;326 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-04">2023-05-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;331 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -118,19 +118,19 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#写在前面">写在前面</a></li>
-    <li><a href="#核心">核心</a></li>
+    <li><a href="#核心部分">核心部分</a></li>
     <li><a href="#个性化">个性化</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>本文以STM32L496为例介绍如何在HAL库下驱动OLED</p>
 <h2 id="写在前面">写在前面</h2>
-<p>网络上也有不少用HAL库的，但实验并未成功，目前笔者也没有想清楚为什么，此处仅介绍笔者成功的一种驱动方法</p>
-<h2 id="核心">核心</h2>
-<p>核心完全是GPIO口的配置，在<code>oled.c</code>文件内存在一个<code>OLED_Init()</code>函数，这里面会对GPIO口重新配置，因此在开发时配置应注意一致，连线应该以这里的为准</p>
-<p>而且这里似乎最好还是要重新配置一下GPIO，因为跟cube生成的还是有些不一样，保险起见还是别注释掉这部分</p>
-<p>有些这里之前给注释掉了，实验没能成功，就不用这种方法了</p>
+<p>网络上也有不少用HAL库的工程，但实验并未成功，目前也没有想清楚为什么，此处仅介绍成功的一种驱动方法</p>
+<h2 id="核心部分">核心部分</h2>
+<p>CSDN，淘宝找到一个用HAL库的工程：</p>
+<p>核心完全是GPIO口的配置，在<code>oled.c</code>文件内存在一个<code>OLED_Init()</code>函数，这里面会对GPIO口重新配置，所以不仅仅是改<code>oled.h</code>文件那里对引脚的重定义</p>
+<p>假设在Cube里配置成和这里一样，然后注释掉这里，理论上应该能行，但保险起见还是别这样</p>
 <p>最方便的就是别改，就按着给定连线就行，马上就能用</p>
-<p>为了能够增加灵活性我将这里进行了修改，以后只需要定义好同样的别名就行了</p>
+<p>为了能够增加灵活性我将这里进行了修改，以后只需要在Cube里定义好同样的别名就行了</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">OLED_Init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">
@@ -235,7 +235,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span> 		     
 </span></span><span class="line"><span class="cl"><span class="cp">#define OLED_CS_Clr()  HAL_GPIO_WritePin(OLED_CS_GPIO_Port, OLED_CS_Pin, GPIO_PIN_RESET)</span><span class="c1">//CS
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define OLED_CS_Set()  HAL_GPIO_WritePin(OLED_CS_GPIO_Port, OLED_CS_Pin, GPIO_PIN_SET)
-</span></span></span></code></pre></div><p>两部分是密切相关的</p>
+</span></span></span></code></pre></div><p>在Cube里面将对应的引脚重命名为<code>SDA, SCK, OLED_CS, OLED_DC, OLED_RST</code>，并使能spi就可以了</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519172137306.png" alt="image-20230519172137306" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519172155616.png" alt="image-20230519172155616" style="zoom:50%;" />
 <h2 id="个性化">个性化</h2>
 <p>如果一直放在while循环里循环显示，则会阻塞到其它功能</p>
 <p>其实只需要show一次即可</p>
@@ -245,7 +247,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">OLED_Refresh</span><span class="p">();</span>
 </span></span></code></pre></div><p>103,48 是坐标；3是位数，表示显示的是<code>024</code>；16是字号大小</p>
 <p>注意，字号只有16，24，32，64，分别对应于<code>oledfont.h</code>的Hzk1~4</p>
-<p>用取模软件得到字符，放入Hzk数组其中即可，可参考其几个Show函数的实现</p></div><div class="post-footer" id="post-footer">
+<p>用取模软件得到字符，放入Hzk数组其中即可，可参考其几个Show函数的实现</p>
+<p><a href="https://github.com/zvictorliu/techBlog/tree/master/assets/src/oled" target="_blank" rel="noopener noreffer ">核心源文件</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

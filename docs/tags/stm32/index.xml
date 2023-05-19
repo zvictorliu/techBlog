@@ -11,7 +11,7 @@
     <guid>https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png" referrerpolicy="no-referrer">
-            </div><p>基本没啥用</p>]]></description>
+            </div><p>采用DMA方式用DAC输出正弦波</p>]]></description>
 </item>
 <item>
     <title>STM32 定时器测量高频率</title>

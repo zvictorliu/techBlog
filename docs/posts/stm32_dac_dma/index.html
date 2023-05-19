@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>STM32 DAC&#43;DMA 输出正弦波 - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="STM32 DAC&#43;DMA 输出正弦波" />
-<meta property="og:description" content="基本没啥用" />
+<meta property="og:description" content="采用DMA方式用DAC输出正弦波" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-19T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-05-19T00:00:00+00:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="STM32 DAC&#43;DMA 输出正弦波"/>
-<meta name="twitter:description" content="基本没啥用"/>
+<meta name="twitter:description" content="采用DMA方式用DAC输出正弦波"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/stm32_dac_dma\/"
-        },"genre": "posts","keywords": "STM32","wordcount":  45 ,
+        },"genre": "posts","keywords": "STM32","wordcount":  54 ,
         "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/stm32_dac_dma\/","datePublished": "2023-05-19T00:00:00+00:00","dateModified": "2023-05-19T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -101,7 +101,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">STM32 DAC+DMA 输出正弦波</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/development/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Development</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-19">2023-05-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;45 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-19">2023-05-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;54 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -122,10 +122,10 @@
     <li><a href="#程序">程序</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>基本没啥用</p>
+            </div><div class="content" id="content"><p>采用DMA方式用DAC输出正弦波</p>
 <h2 id="dac">DAC</h2>
-<p>希望每隔一定时间产生一个电压值</p>
-<p>这需要DAC到时候被触发<code>Trigger</code>，所以，对DAC的配置是：</p>
+<p>我们希望每隔一定时间输出一个电压值</p>
+<p>这需要DAC到时间被触发<em>Trigger</em>，所以，对DAC的配置是：</p>
 <p><img
         class="lazyload"
         src="/techBlog/svg/loading.min.svg"
@@ -134,11 +134,12 @@
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519134549540.png"
         title="image-20230519134549540" /></p>
-<p>STM32L496ZG的DAC只有一个，且通道固定是<code>PA4, PA5</code>，而这个引脚也是<code>SPI1</code>的，注意一下即可</p>
-<p>这里选择了定时器5触发</p>
-<p>同时，DAC要转换的数值由DMA提供，所以需要配置其DMA，添加：</p>
+<p>这里Trigger选择了定时器5来触发DAC，其它几个参数可无视，并没有很大影响</p>
+<p><em>注意：STM32L496ZG的DAC只有一个，且通道固定是<code>PA4, PA5</code>，而这个引脚也同时是<code>SPI1</code>的默认引脚，注意不要公用时冲突</em></p>
+<p>同时，DAC要转换的数值由DMA提供，从内存中直接经其通道传输给DAC的通道进行转换</p>
+<p>需要配置其DMA，添加：</p>
 <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519134659146.png" alt="image-20230519134659146" style="zoom:67%;" />
-<p>表示将内存中的数值送到DAC_CH1，注意选择circluar，这样才可以持续输出</p>
+<p>表示将内存中的数值送到<code>DAC_CH1</code>，也就是<code>PA4</code>，注意选择<code>circluar</code>，这样才可以循环输出产生持续的正弦波</p>
 <h2 id="tim">TIM</h2>
 <p>定时器需要让它产生Trigger信号</p>
 <p><img
@@ -149,12 +150,15 @@
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135328642.png"
         title="image-20230519135328642" /></p>
-<p>这里的update event指的就是定时器计数器满，所以频率从这里来</p>
+<p>这里的update event指的就是定时器计数器满，定时器计数值满后就会触发DAC，这里的触发不是中断</p>
+<p>所以定时器触发的频率等同于采样率</p>
 <h2 id="程序">程序</h2>
+<p>启动：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">HAL_TIM_Base_Start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">htim5</span><span class="p">);</span> <span class="c1">// 启动tim5 无需中断
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">HAL_DAC_Start_DMA</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hdac1</span><span class="p">,</span> <span class="n">DAC_CHANNEL_1</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="o">*</span><span class="p">)</span><span class="n">Sine12bit</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">DAC_ALIGN_12B_R</span><span class="p">);</span> <span class="c1">// 启动DAC_DMA模式
 </span></span></span></code></pre></div><p>这样就可以把Sine12bit输出了</p>
-<p>这里提供一个：</p>
+<p><code>&amp;hdac1</code>指出了dac对象，<code>DAC_CHHANNEL_1</code>为通道，<code>SIine12bit</code>传输的是指针，代表的是内存地址，也就是输出的源地址，100是数量，<code>DAC_ALIGN_12B_R</code>代表对齐方式，这个和寄存器有关，这里不细讲了</p>
+<p>这里提供一个<code>Sine12bit</code>数组：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">uint16_t</span> <span class="n">Sine12bit</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="o">=</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="mh">0x0800</span><span class="p">,</span><span class="mh">0x0881</span><span class="p">,</span><span class="mh">0x0901</span><span class="p">,</span><span class="mh">0x0980</span><span class="p">,</span><span class="mh">0x09FD</span><span class="p">,</span><span class="mh">0x0A79</span><span class="p">,</span><span class="mh">0x0AF2</span><span class="p">,</span><span class="mh">0x0B68</span><span class="p">,</span><span class="mh">0x0BDA</span><span class="p">,</span><span class="mh">0x0C49</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="mh">0x0CB3</span><span class="p">,</span><span class="mh">0x0D19</span><span class="p">,</span><span class="mh">0x0D79</span><span class="p">,</span><span class="mh">0x0DD4</span><span class="p">,</span><span class="mh">0x0E29</span><span class="p">,</span><span class="mh">0x0E78</span><span class="p">,</span><span class="mh">0x0EC0</span><span class="p">,</span><span class="mh">0x0F02</span><span class="p">,</span><span class="mh">0x0F3C</span><span class="p">,</span><span class="mh">0x0F6F</span><span class="p">,</span>
@@ -167,8 +171,8 @@
 </span></span><span class="line"><span class="cl"><span class="mh">0x0065</span><span class="p">,</span><span class="mh">0x0091</span><span class="p">,</span><span class="mh">0x00C4</span><span class="p">,</span><span class="mh">0x00FE</span><span class="p">,</span><span class="mh">0x0140</span><span class="p">,</span><span class="mh">0x0188</span><span class="p">,</span><span class="mh">0x01D7</span><span class="p">,</span><span class="mh">0x022C</span><span class="p">,</span><span class="mh">0x0287</span><span class="p">,</span><span class="mh">0x02E7</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="mh">0x034D</span><span class="p">,</span><span class="mh">0x03B7</span><span class="p">,</span><span class="mh">0x0426</span><span class="p">,</span><span class="mh">0x0498</span><span class="p">,</span><span class="mh">0x050E</span><span class="p">,</span><span class="mh">0x0587</span><span class="p">,</span><span class="mh">0x0603</span><span class="p">,</span><span class="mh">0x0680</span><span class="p">,</span><span class="mh">0x06FF</span><span class="p">,</span><span class="mh">0x077F</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span></code></pre></div><p>这里 0-4095的值，转换为电压为0-3.3V</p>
-<p>在PA4便可得到正弦波：</p>
+</span></span></code></pre></div><p>这里是$0 \sim 2^{12} -1$的值，转换成电压为 $0 \sim 3.3V$</p>
+<p>在<code>PA4</code>处便可得到正弦波：</p>
 <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/e30cd767b338482b07b2ffeb343c5b7.jpg" alt="e30cd767b338482b07b2ffeb343c5b7" style="zoom:40%;" /></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
