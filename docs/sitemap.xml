@@ -2,13 +2,14 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://zvictorliu.github.io/techBlog/categories/</loc><lastmod>2023-05-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/categories/development/</loc><lastmod>2023-05-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/</loc><lastmod>2023-05-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/posts/</loc><lastmod>2023-05-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/tags/stm32/</loc><lastmod>2023-05-13T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/categories/</loc><lastmod>2023-05-19T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/categories/development/</loc><lastmod>2023-05-19T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/</loc><lastmod>2023-05-19T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/posts/</loc><lastmod>2023-05-19T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/tags/stm32/</loc><lastmod>2023-05-19T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/</loc><lastmod>2023-05-19T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/tags/</loc><lastmod>2023-05-19T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</loc><lastmod>2023-05-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/tags/</loc><lastmod>2023-05-13T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/categories/coding/</loc><lastmod>2023-05-04T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/%E5%9B%BE/</loc><lastmod>2023-05-04T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/posts/stm32l4-oled/</loc><lastmod>2023-05-04T00:00:00&#43;00:00</lastmod></url><url>

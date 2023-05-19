@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>STM32 DAC&#43;DMA 输出正弦波 - My New Hugo Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="STM32 DAC&#43;DMA 输出正弦波" />
+<meta property="og:description" content="基本没啥用" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-05-19T00:00:00+00:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="STM32 DAC&#43;DMA 输出正弦波"/>
+<meta name="twitter:description" content="基本没啥用"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/" /><link rel="prev" href="https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/" /><link rel="stylesheet" href="/techBlog/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "STM32 DAC+DMA 输出正弦波",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/stm32_dac_dma\/"
+        },"genre": "posts","keywords": "STM32","wordcount":  45 ,
+        "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/stm32_dac_dma\/","datePublished": "2023-05-19T00:00:00+00:00","dateModified": "2023-05-19T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Zongwei"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/techBlog/" title="My New Hugo Site">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/techBlog/posts/"> Posts </a><a class="menu-item" href="/techBlog/tags/"> Tags </a><a class="menu-item" href="/techBlog/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/techBlog/" title="My New Hugo Site">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/techBlog/posts/" title="">Posts</a><a class="menu-item" href="/techBlog/tags/" title="">Tags</a><a class="menu-item" href="/techBlog/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">STM32 DAC+DMA 输出正弦波</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/development/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Development</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-05-19">2023-05-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;45 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png"
+        title="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#dac">DAC</a></li>
+    <li><a href="#tim">TIM</a></li>
+    <li><a href="#程序">程序</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>基本没啥用</p>
+<h2 id="dac">DAC</h2>
+<p>希望每隔一定时间产生一个电压值</p>
+<p>这需要DAC到时候被触发<code>Trigger</code>，所以，对DAC的配置是：</p>
+<p><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519134549540.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519134549540.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519134549540.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519134549540.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519134549540.png"
+        title="image-20230519134549540" /></p>
+<p>STM32L496ZG的DAC只有一个，且通道固定是<code>PA4, PA5</code>，而这个引脚也是<code>SPI1</code>的，注意一下即可</p>
+<p>这里选择了定时器5触发</p>
+<p>同时，DAC要转换的数值由DMA提供，所以需要配置其DMA，添加：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519134659146.png" alt="image-20230519134659146" style="zoom:67%;" />
+<p>表示将内存中的数值送到DAC_CH1，注意选择circluar，这样才可以持续输出</p>
+<h2 id="tim">TIM</h2>
+<p>定时器需要让它产生Trigger信号</p>
+<p><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135328642.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135328642.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135328642.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135328642.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135328642.png"
+        title="image-20230519135328642" /></p>
+<p>这里的update event指的就是定时器计数器满，所以频率从这里来</p>
+<h2 id="程序">程序</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nf">HAL_TIM_Base_Start</span><span class="p">(</span><span class="o">&amp;</span><span class="n">htim5</span><span class="p">);</span> <span class="c1">// 启动tim5 无需中断
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">HAL_DAC_Start_DMA</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hdac1</span><span class="p">,</span> <span class="n">DAC_CHANNEL_1</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint32_t</span> <span class="o">*</span><span class="p">)</span><span class="n">Sine12bit</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">DAC_ALIGN_12B_R</span><span class="p">);</span> <span class="c1">// 启动DAC_DMA模式
+</span></span></span></code></pre></div><p>这样就可以把Sine12bit输出了</p>
+<p>这里提供一个：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">uint16_t</span> <span class="n">Sine12bit</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="o">=</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x0800</span><span class="p">,</span><span class="mh">0x0881</span><span class="p">,</span><span class="mh">0x0901</span><span class="p">,</span><span class="mh">0x0980</span><span class="p">,</span><span class="mh">0x09FD</span><span class="p">,</span><span class="mh">0x0A79</span><span class="p">,</span><span class="mh">0x0AF2</span><span class="p">,</span><span class="mh">0x0B68</span><span class="p">,</span><span class="mh">0x0BDA</span><span class="p">,</span><span class="mh">0x0C49</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x0CB3</span><span class="p">,</span><span class="mh">0x0D19</span><span class="p">,</span><span class="mh">0x0D79</span><span class="p">,</span><span class="mh">0x0DD4</span><span class="p">,</span><span class="mh">0x0E29</span><span class="p">,</span><span class="mh">0x0E78</span><span class="p">,</span><span class="mh">0x0EC0</span><span class="p">,</span><span class="mh">0x0F02</span><span class="p">,</span><span class="mh">0x0F3C</span><span class="p">,</span><span class="mh">0x0F6F</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x0F9B</span><span class="p">,</span><span class="mh">0x0FBF</span><span class="p">,</span><span class="mh">0x0FDB</span><span class="p">,</span><span class="mh">0x0FEF</span><span class="p">,</span><span class="mh">0x0FFB</span><span class="p">,</span><span class="mh">0x0FFF</span><span class="p">,</span><span class="mh">0x0FFB</span><span class="p">,</span><span class="mh">0x0FEF</span><span class="p">,</span><span class="mh">0x0FDB</span><span class="p">,</span><span class="mh">0x0FBF</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x0F9B</span><span class="p">,</span><span class="mh">0x0F6F</span><span class="p">,</span><span class="mh">0x0F3C</span><span class="p">,</span><span class="mh">0x0F02</span><span class="p">,</span><span class="mh">0x0EC0</span><span class="p">,</span><span class="mh">0x0E78</span><span class="p">,</span><span class="mh">0x0E29</span><span class="p">,</span><span class="mh">0x0DD4</span><span class="p">,</span><span class="mh">0x0D79</span><span class="p">,</span><span class="mh">0x0D19</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x0CB3</span><span class="p">,</span><span class="mh">0x0C49</span><span class="p">,</span><span class="mh">0x0BDA</span><span class="p">,</span><span class="mh">0x0B68</span><span class="p">,</span><span class="mh">0x0AF2</span><span class="p">,</span><span class="mh">0x0A79</span><span class="p">,</span><span class="mh">0x09FD</span><span class="p">,</span><span class="mh">0x0980</span><span class="p">,</span><span class="mh">0x0901</span><span class="p">,</span><span class="mh">0x0881</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x0800</span><span class="p">,</span><span class="mh">0x077F</span><span class="p">,</span><span class="mh">0x06FF</span><span class="p">,</span><span class="mh">0x0680</span><span class="p">,</span><span class="mh">0x0603</span><span class="p">,</span><span class="mh">0x0587</span><span class="p">,</span><span class="mh">0x050E</span><span class="p">,</span><span class="mh">0x0498</span><span class="p">,</span><span class="mh">0x0426</span><span class="p">,</span><span class="mh">0x03B7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x034D</span><span class="p">,</span><span class="mh">0x02E7</span><span class="p">,</span><span class="mh">0x0287</span><span class="p">,</span><span class="mh">0x022C</span><span class="p">,</span><span class="mh">0x01D7</span><span class="p">,</span><span class="mh">0x0188</span><span class="p">,</span><span class="mh">0x0140</span><span class="p">,</span><span class="mh">0x00FE</span><span class="p">,</span><span class="mh">0x00C4</span><span class="p">,</span><span class="mh">0x0091</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x0065</span><span class="p">,</span><span class="mh">0x0041</span><span class="p">,</span><span class="mh">0x0025</span><span class="p">,</span><span class="mh">0x0011</span><span class="p">,</span><span class="mh">0x0005</span><span class="p">,</span><span class="mh">0x0001</span><span class="p">,</span><span class="mh">0x0005</span><span class="p">,</span><span class="mh">0x0011</span><span class="p">,</span><span class="mh">0x0025</span><span class="p">,</span><span class="mh">0x0041</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x0065</span><span class="p">,</span><span class="mh">0x0091</span><span class="p">,</span><span class="mh">0x00C4</span><span class="p">,</span><span class="mh">0x00FE</span><span class="p">,</span><span class="mh">0x0140</span><span class="p">,</span><span class="mh">0x0188</span><span class="p">,</span><span class="mh">0x01D7</span><span class="p">,</span><span class="mh">0x022C</span><span class="p">,</span><span class="mh">0x0287</span><span class="p">,</span><span class="mh">0x02E7</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="mh">0x034D</span><span class="p">,</span><span class="mh">0x03B7</span><span class="p">,</span><span class="mh">0x0426</span><span class="p">,</span><span class="mh">0x0498</span><span class="p">,</span><span class="mh">0x050E</span><span class="p">,</span><span class="mh">0x0587</span><span class="p">,</span><span class="mh">0x0603</span><span class="p">,</span><span class="mh">0x0680</span><span class="p">,</span><span class="mh">0x06FF</span><span class="p">,</span><span class="mh">0x077F</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>这里 0-4095的值，转换为电压为0-3.3V</p>
+<p>在PA4便可得到正弦波：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/e30cd767b338482b07b2ffeb343c5b7.jpg" alt="e30cd767b338482b07b2ffeb343c5b7" style="zoom:40%;" /></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-05-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/" data-title="STM32 DAC&#43;DMA 输出正弦波" data-hashtags="STM32"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/" data-hashtag="STM32"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/" data-title="STM32 DAC&#43;DMA 输出正弦波"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/" data-title="STM32 DAC&#43;DMA 输出正弦波"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/" data-title="STM32 DAC&#43;DMA 输出正弦波" data-image="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/techBlog/tags/stm32/">STM32</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/techBlog/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/techBlog/posts/stm32l4-timer/" class="prev" rel="prev" title="STM32 定时器测量高频率"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>STM32 定时器测量高频率</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/techBlog/" target="_blank">Zongwei</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/techBlog/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/techBlog/js/theme.min.js"></script></body>
+</html>

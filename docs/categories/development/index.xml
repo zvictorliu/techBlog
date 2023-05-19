@@ -3,7 +3,17 @@
         <title>Development - Category - My New Hugo Site</title>
         <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
         <description>Development - Category - My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+    <title>STM32 DAC&#43;DMA 输出正弦波</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/</link>
+    <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png" referrerpolicy="no-referrer">
+            </div><p>基本没啥用</p>]]></description>
+</item>
+<item>
     <title>STM32 定时器测量高频率</title>
     <link>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</link>
     <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
