@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>My New Hugo Site</title>
+        <title>My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/</link>
-        <description>This is my cool site</description>
+        <description>hello</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zvictorliu.github.io/techBlog/index.xml" rel="self" type="application/rss+xml" />
         <item>
