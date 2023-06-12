@@ -5,6 +5,7 @@ tags:
   - "STM32"
 categories:
   - "Development"
+featuredImage: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png"
 ---
 
 
@@ -22,6 +23,8 @@ categories:
 [DS11585](https://www.st.com/resource/en/datasheet/stm32l496zg.pdf) 是板载的MCU手册，用处不大，现在基本不会用裸机
 
 STM32L073xx_User_Manual.chm 这个一般位于cube安装的pack里面（\STM32Cube\Repository\STM32Cube_FW_L0_V1.12.2\Drivers\STM32L0xx_HAL_Driver），是HAL库的手册，用HAL库的都有类似的文档，因此不必纠结是不是L0系列
+
+
 
 # STM32CubeMX
 

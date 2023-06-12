@@ -5,7 +5,7 @@ tags:
   - "STM32"
 categories:
   - "Development"
-
+featuredImage: "https://www.waveshare.net/photo/LCD/1.5inch-OLED-Module/1.5inch-OLED-Module-1.jpg"
 ---
 
 本文以STM32L496为例介绍如何在HAL库下驱动OLED
@@ -14,21 +14,21 @@ categories:
 
 ## 写在前面
 
-网络上也有不少用HAL库的，但实验并未成功，目前笔者也没有想清楚为什么，此处仅介绍笔者成功的一种驱动方法
+网络上也有不少用HAL库的工程，但实验并未成功，目前也没有想清楚为什么，此处仅介绍成功的一种驱动方法
 
-## 核心
+## 核心部分
 
-核心完全是GPIO口的配置，在`oled.c`文件内存在一个`OLED_Init()`函数，这里面会对GPIO口重新配置，因此在开发时配置应注意一致，连线应该以这里的为准
+CSDN，淘宝找到一个用HAL库的工程：
 
-而且这里似乎最好还是要重新配置一下GPIO，因为跟cube生成的还是有些不一样，保险起见还是别注释掉这部分
+核心完全是GPIO口的配置，在`oled.c`文件内存在一个`OLED_Init()`函数，这里面会对GPIO口重新配置，所以不仅仅是改`oled.h`文件那里对引脚的重定义
 
-有些这里之前给注释掉了，实验没能成功，就不用这种方法了
+假设在Cube里配置成和这里一样，然后注释掉这里，理论上应该能行，但保险起见还是别这样
 
 最方便的就是别改，就按着给定连线就行，马上就能用
 
 
 
-为了能够增加灵活性我将这里进行了修改，以后只需要定义好同样的别名就行了
+为了能够增加灵活性我将这里进行了修改，以后只需要在Cube里定义好同样的别名就行了
 
 ```c
 void OLED_Init(void)
@@ -140,7 +140,11 @@ void OLED_Init(void)
 #define OLED_CS_Set()  HAL_GPIO_WritePin(OLED_CS_GPIO_Port, OLED_CS_Pin, GPIO_PIN_SET)
 ```
 
-两部分是密切相关的
+在Cube里面将对应的引脚重命名为`SDA, SCK, OLED_CS, OLED_DC, OLED_RST`，并使能spi就可以了
+
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519172137306.png" alt="image-20230519172137306" style="zoom:67%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519172155616.png" alt="image-20230519172155616" style="zoom:50%;" />
 
 ## 个性化
 
@@ -161,3 +165,6 @@ OLED_Refresh();
 
 用取模软件得到字符，放入Hzk数组其中即可，可参考其几个Show函数的实现
 
+
+
+[核心源文件](https://github.com/zvictorliu/techBlog/tree/master/assets/src/oled)
