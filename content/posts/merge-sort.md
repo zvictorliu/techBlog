@@ -1,11 +1,11 @@
 ---
-title；链表归并排序
+title: 链表归并排序
 date: 2023-06-05
 categories:
-- coding
+- "coding"
 tags:
-- 链表
-- 排序
+- "链表"
+- "排序"
 ---
 
 链表的归并排序算法

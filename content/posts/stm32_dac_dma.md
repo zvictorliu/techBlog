@@ -77,3 +77,9 @@ const uint16_t Sine12bit[100]={
 在`PA4`处便可得到正弦波：
 
 <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/e30cd767b338482b07b2ffeb343c5b7.jpg" alt="e30cd767b338482b07b2ffeb343c5b7" style="zoom:40%;" />
+
+
+
+
+
+PS. *当试图用DAC做信号发生器时要考虑接口电流电压特性是否能够带得动外设，比如扬声器模块就需要前置级，不能直接驱动*

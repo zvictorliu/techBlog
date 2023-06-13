@@ -3,9 +3,25 @@
         <title>My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/</link>
         <description>hello</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 13 Jun 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zvictorliu.github.io/techBlog/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Makefile基础</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/makefile/</link>
+    <pubDate>Tue, 13 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/makefile/</guid>
+    <description><![CDATA[<p>从Makefile入门，逐步推进到CMake</p>]]></description>
+</item>
+<item>
+    <title>链表归并排序</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/merge-sort/</link>
+    <pubDate>Mon, 05 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/merge-sort/</guid>
+    <description><![CDATA[<p>链表的归并排序算法</p>]]></description>
+</item>
+<item>
     <title>STM32 DAC&#43;DMA 输出正弦波</title>
     <link>https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/</link>
     <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
@@ -82,14 +98,6 @@ QMainWindow继承自QWidget，增加了菜单栏、状态栏之类的东西，�
     <description><![CDATA[<div class="featured-image">
                 <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png" referrerpolicy="no-referrer">
             </div><p>本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法</p>]]></description>
-</item>
-<item>
-    <title>Theme Documentation - Basics</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/theme-documentation-basics/</link>
-    <pubDate>Fri, 06 Mar 2020 21:29:01 &#43;0800</pubDate>
-    <author>Dillon</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/theme-documentation-basics/</guid>
-    <description><![CDATA[<p>Discover what the Hugo - <strong>LoveIt</strong> theme is all about and the core-concepts behind it.</p>]]></description>
 </item>
 </channel>
 </rss>

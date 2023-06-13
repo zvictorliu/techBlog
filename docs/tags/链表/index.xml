@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>链表 - Tag - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/%E9%93%BE%E8%A1%A8/</link>
+        <description>链表 - Tag - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 05 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/%E9%93%BE%E8%A1%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>链表归并排序</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/merge-sort/</link>
+    <pubDate>Mon, 05 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/merge-sort/</guid>
+    <description><![CDATA[<p>链表的归并排序算法</p>]]></description>
+</item>
+</channel>
+</rss>
