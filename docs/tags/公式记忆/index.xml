@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>公式记忆 - Tag - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/%E5%85%AC%E5%BC%8F%E8%AE%B0%E5%BF%86/</link>
+        <description>公式记忆 - Tag - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 18 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/%E5%85%AC%E5%BC%8F%E8%AE%B0%E5%BF%86/" rel="self" type="application/rss+xml" /><item>
+    <title>公式</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/%E5%85%AC%E5%BC%8F/</link>
+    <pubDate>Sun, 18 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/%E5%85%AC%E5%BC%8F/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://pic1.zhimg.com/v2-69ff94300c46712e2db80485c78c3be2_r.jpg?source=172ae18b" referrerpolicy="no-referrer">
+            </div><p>遇到了，就尽快背下来吧</p>]]></description>
+</item>
+</channel>
+</rss>

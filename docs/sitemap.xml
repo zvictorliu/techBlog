@@ -2,12 +2,16 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://zvictorliu.github.io/techBlog/categories/</loc><lastmod>2023-06-13T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/categories/</loc><lastmod>2023-06-18T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/</loc><lastmod>2023-06-18T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/posts/</loc><lastmod>2023-06-18T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/tags/</loc><lastmod>2023-06-18T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/posts/%E5%85%AC%E5%BC%8F/</loc><lastmod>2023-06-18T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/tags/%E5%85%AC%E5%BC%8F%E8%AE%B0%E5%BF%86/</loc><lastmod>2023-06-18T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/categories/%E6%95%B0%E5%AD%A6%E4%BA%8C/</loc><lastmod>2023-06-18T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/posts/linux-basic/</loc><lastmod>2023-06-16T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/categories/coding/</loc><lastmod>2023-06-13T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/posts/makefile/</loc><lastmod>2023-06-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/</loc><lastmod>2023-06-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/posts/</loc><lastmod>2023-06-13T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/tags/</loc><lastmod>2023-06-13T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91/</loc><lastmod>2023-06-13T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/%E6%8E%92%E5%BA%8F/</loc><lastmod>2023-06-05T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/%E9%93%BE%E8%A1%A8/</loc><lastmod>2023-06-05T00:00:00&#43;00:00</lastmod></url><url>

@@ -3,7 +3,15 @@
         <title>Categories - Category - My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/categories/</link>
         <description>Categories - Category - My Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 13 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 18 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>数学二</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/%E6%95%B0%E5%AD%A6%E4%BA%8C/</link>
+    <pubDate>Sun, 18 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/%E6%95%B0%E5%AD%A6%E4%BA%8C/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>coding</title>
     <link>https://zvictorliu.github.io/techBlog/categories/coding/</link>
     <pubDate>Tue, 13 Jun 2023 00:00:00 &#43;0000</pubDate>

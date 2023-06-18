@@ -3,9 +3,27 @@
         <title>My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/</link>
         <description>hello</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 13 Jun 2023 00:00:00 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 18 Jun 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zvictorliu.github.io/techBlog/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>公式</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/%E5%85%AC%E5%BC%8F/</link>
+    <pubDate>Sun, 18 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/%E5%85%AC%E5%BC%8F/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://pic1.zhimg.com/v2-69ff94300c46712e2db80485c78c3be2_r.jpg?source=172ae18b" referrerpolicy="no-referrer">
+            </div><p>遇到了，就尽快背下来吧</p>]]></description>
+</item>
+<item>
+    <title>linux基础</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/linux-basic/</link>
+    <pubDate>Fri, 16 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/linux-basic/</guid>
+    <description><![CDATA[<p>What I understand about linux</p>]]></description>
+</item>
+<item>
     <title>Makefile基础</title>
     <link>https://zvictorliu.github.io/techBlog/posts/makefile/</link>
     <pubDate>Tue, 13 Jun 2023 00:00:00 &#43;0000</pubDate>
@@ -72,32 +90,6 @@
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/posts/minimum-spanning-tree/</guid>
     <description><![CDATA[<p>此处主要记录最小生成树的个人理解，目标是为了个人复习，而不是为了讲清楚</p>]]></description>
-</item>
-<item>
-    <title>Qt 开发上位机程序</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/qt-creator-serialport/</link>
-    <pubDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/qt-creator-serialport/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://picx.zhimg.com/v2-33907f5bcba1b1fcd3f8fd1bf95519b8_1440w.jpg?source=172ae18b" referrerpolicy="no-referrer">
-            </div>利用Qt creator 开发一个上位机程序，能够实现显示单片机返回的数据，增加展示效果，但可调式性必然没有以及成熟的好
-基本认识 Qt 生成一个主窗口，然后会陷入事件循环，直至用户关闭程序才会执行main函数后面的代码
-Qt 生成的窗口样式是和操作系统相关的，Qt 可以设置一些属性，但一些特别的属性依赖于系统主题，Qt 无法控制，所以改了也没有用
-QMainWindow继承自QWidget，增加了菜单栏、状态栏之类的东西，比如经常有看到的“文件、工具”等待选项，这些并非是必要的
-在ui界面上的东西，是属于ui这个对象的成员
-自定义窗口 如果完全自定义则关闭、最大化、最小化这些都要自己配置了
-实在太麻烦，还是就这样了吧，win11的也不算丑了]]></description>
-</item>
-<item>
-    <title>基于NUCLEO-L496ZG开发</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/nucleol496zg/</link>
-    <pubDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/nucleol496zg/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/nucleol496zg.png" referrerpolicy="no-referrer">
-            </div><p>本文基于STM32CubeMX + Keil5 的开发，介绍该型号的配置和使用方法</p>]]></description>
 </item>
 </channel>
 </rss>
