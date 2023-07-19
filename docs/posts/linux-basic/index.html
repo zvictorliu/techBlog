@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/linux-basic\/"
-        },"genre": "posts","wordcount":  40 ,
+        },"genre": "posts","wordcount":  75 ,
         "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/linux-basic\/","datePublished": "2023-06-16T00:00:00+00:00","dateModified": "2023-06-16T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -99,7 +99,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">linux基础</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-16">2023-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;40 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-06-16">2023-06-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;75 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -110,6 +110,10 @@
   <ul>
     <li><a href="#bash-shell">bash shell</a></li>
     <li><a href="#linux-c">linux C</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#文件权限">文件权限</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>What I understand about linux</p>
@@ -160,7 +164,31 @@
 <td><code>execve()</code></td>
 </tr>
 </tbody>
-</table></div><div class="post-footer" id="post-footer">
+</table>
+<h2 id="文件权限">文件权限</h2>
+<p><code>/etc/passwd</code> 记录了用户信息</p>
+<p>分三类：root, 用户账户，系统功能账户</p>
+<p>每一行的格式：</p>
+<p><code>zongwei:x:1000:1000:zongwei,,,:/home/zongwei:/bin/bash</code></p>
+<p>登录名：密码（隐藏了）：UID：组ID：备注：默认目录：默认Shell</p>
+<p>密码保存至<code>/etc/shadow</code>下面，root才有权限访问，不过如果有sudo权限是可以修改root密码的</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo passwd root
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">$ su
+</span></span><span class="line"><span class="cl">$ <span class="nb">exit</span>
+</span></span></code></pre></div><p>但是cat出来也看不懂，它经过了加密机制</p>
+<p>组内可以共享权限设置</p>
+<blockquote>
+<p>Ubuntu会为每个用户创建一个单独的与用户账户同名的组</p>
+</blockquote>
+<p>查看文件权限：<code>ls -l</code></p>
+<p>第一个字符：<code>-</code>文件，<code>d</code>目录，<code>l</code>链接 &hellip;</p>
+<p>后面9个字符每3个为一组：属主权限-同组用户权限-其它用户权限</p>
+<p><code>r</code>读 <code>w</code>写 <code>x</code>可执行 如果没有这个权限就是<code>-</code>来占位</p>
+<p>创建文件时是用的默认权限，用<code>unmask</code>可以修改默认，但比较难</p>
+<p>对已有的文件进行权限修改：<code>chmod</code></p>
+<p>改变文件属主：<code>chown</code>，属组<code>chgrp</code> （root才可以用）</p>
+<p>下载下来的<code>.run</code>文件一般是没有可运行的权限的，需要赋予</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

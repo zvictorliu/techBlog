@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>神经网络入门-MINIST（未完待续） - My Tech Blog</title><meta name="Description" content="hello"><meta property="og:title" content="神经网络入门-MINIST（未完待续）" />
+<meta property="og:description" content="base on 《Make Your Own Neural Network》by Tariq Rashid, 中文版" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zvictorliu.github.io/techBlog/posts/neural_network/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-07-17T00:00:00+00:00" /><meta property="og:site_name" content="My tech site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="神经网络入门-MINIST（未完待续）"/>
+<meta name="twitter:description" content="base on 《Make Your Own Neural Network》by Tariq Rashid, 中文版"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/batman-logo.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zvictorliu.github.io/techBlog/posts/neural_network/" /><link rel="prev" href="https://zvictorliu.github.io/techBlog/posts/%E5%85%AC%E5%BC%8F/" /><link rel="stylesheet" href="/techBlog/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "神经网络入门-MINIST（未完待续）",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/neural_network\/"
+        },"genre": "posts","keywords": "神经网络","wordcount":  530 ,
+        "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/neural_network\/","datePublished": "2023-07-17T00:00:00+00:00","dateModified": "2023-07-17T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Zongwei"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/techBlog/" title="My Tech Blog">Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/techBlog/posts/"> Posts </a><a class="menu-item" href="/techBlog/tags/"> Tags </a><a class="menu-item" href="/techBlog/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/techBlog/" title="My Tech Blog">Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/techBlog/posts/" title="">Posts</a><a class="menu-item" href="/techBlog/tags/" title="">Tags</a><a class="menu-item" href="/techBlog/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">神经网络入门-MINIST（未完待续）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/ai/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>AI</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-07-17">2023-07-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;530 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#理论">理论</a>
+      <ul>
+        <li><a href="#结构">结构</a></li>
+        <li><a href="#输出">输出</a></li>
+        <li><a href="#反向传播">反向传播</a></li>
+        <li><a href="#权重更新梯度下降法">权重更新：梯度下降法</a></li>
+      </ul>
+    </li>
+    <li><a href="#实践">实践</a></li>
+    <li><a href="#改进">改进</a></li>
+    <li><a href="#其它">其它</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>base on 《Make Your Own Neural Network》by Tariq Rashid, 中文版</p>
+<h1 id="神经网络">神经网络</h1>
+<h2 id="理论">理论</h2>
+<h3 id="结构">结构</h3>
+<p>神经元不会理解做出反应，而是会抑制输出，直到输入大到超过阈值才触发输出（避免噪声）</p>
+<p>所以有<code>激活函数</code>，直观来讲输入输出是一个阶跃函数，但一般改进为S函数：平滑更符合自然规律</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230717174558217.png" alt="image-20230717174558217" style="zoom:67%;" />
+<p>多个输入信号被组合成更强大的输入信号</p>
+<p>神经元输出传递也是后面神经元的输入：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230717174905533.png" alt="image-20230717174905533" style="zoom:67%;" />
+<p>于是我们对它进行分层设计：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230717174937377.png" alt="image-20230717174937377" style="zoom: 50%;" />
+<p>现在需要进行学习调整其中的参数，其中最简单的方法就是各个边的权重</p>
+<p>一开始权重取随机值</p>
+<h3 id="输出">输出</h3>
+<p>第一层仅接受输入</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230717175829322.png" alt="image-20230717175829322" style="zoom:67%;" />
+<p>这个计算输出可以用矩阵来简化</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230717175929048.png" alt="image-20230717175929048" style="zoom:67%;" />
+$$
+X = WI \\
+O = sigmoid(I)
+$$
+对于三层网络，一般称中间那层为隐藏层
+<p>输入层-隐藏层，隐藏层-输出层之间都有这个关系</p>
+<h3 id="反向传播">反向传播</h3>
+<p>将样本的结果和计算结果比较得到误差</p>
+<p>将误差分给多个输入优化它们的权重</p>
+<p>这就是反向传播：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230717180511148.png" alt="image-20230717180511148" style="zoom:67%;" />
+<p>相当于翻过来输出当输入，得到每个节点的误差值（尽管中间节点并没有一个目标值）</p>
+<h3 id="权重更新梯度下降法">权重更新：梯度下降法</h3>
+<p>找到总误差的最小值点，这里定义总误差为：
+$$
+E = e_1^2 + e_2^2 +&hellip;+e_n^2
+$$
+这样避免了相互抵消</p>
+<p>以梯度下降的方向更新权重，需要求出梯度、选择合适的步长，步长的选择影响还是很大的：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719094645371.png" alt="image-20230719094645371" style="zoom:67%;" />
+<p>步长以学习率$\alpha$来反应：
+$$
+w_{j,k} = w_{j,k} - \alpha\frac{\partial E}{\partial w_{j,k}}
+$$
+现在只考虑隐藏层和输出层之间的权重：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719094838646.png" alt="image-20230719094838646" style="zoom:67%;" />
+$$
+E = \sum (t_k -o_k)^2 \\
+\frac{\partial E}{\partial w_{j,k}} = \frac{\partial E}{\partial o_k} \cdot \frac{\partial o_k}{\partial w_{j,k}}
+$$
+$t_k$是目标值是常数，进一步化简，得到表达式：
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719095656557.png" alt="image-20230719095656557" style="zoom:67%;" />
+<p>这是隐藏层与输出层之间的权重，而输入层与隐藏层之间的权重，通过节点的“误差”代换掉即可，这里用到了对称性的思想</p>
+<p><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719095602883.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719095602883.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719095602883.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719095602883.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719095602883.png"
+        title="image-20230719095602883" /></p>
+<p>总之，我们统一为：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719095922045.png" alt="image-20230719095922045" style="zoom:80%;" />
+<h2 id="实践">实践</h2>
+<p>训练集：用于训练</p>
+<p>测试集：评价好坏</p>
+<p>输出中最大的那个的编号作为结果</p>
+<p>最理想的输出是 [0, 0, &hellip;1, 0, 0]这样的，但实际不可能(sigmoid)上下界</p>
+<h2 id="改进">改进</h2>
+<p>多次重复训练叫做世代</p>
+<p>epoch和学习率会影响性能：</p>
+<img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230719131700216.png" alt="image-20230719131700216" style="zoom:67%;" />
+<p>网络的结构（隐藏层数量、层数）</p>
+<h2 id="其它">其它</h2>
+<p>自己的手写数字</p>
+<p>反向查询：从label反推Image</p>
+<p>对图像旋转后对结果的影响</p>
+<hr>
+<p>源码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># build a class</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scipy.special</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">neuralNetwork</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># initial parameters and something else</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputnodes</span><span class="p">,</span> <span class="n">hiddennodes</span><span class="p">,</span> <span class="n">outputnodes</span><span class="p">,</span> <span class="n">learningRate</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">       <span class="c1"># the 3 layers</span>
+</span></span><span class="line"><span class="cl">       <span class="bp">self</span><span class="o">.</span><span class="n">inodes</span> <span class="o">=</span> <span class="n">inputnodes</span>
+</span></span><span class="line"><span class="cl">       <span class="bp">self</span><span class="o">.</span><span class="n">hnodes</span> <span class="o">=</span> <span class="n">hiddennodes</span>
+</span></span><span class="line"><span class="cl">       <span class="bp">self</span><span class="o">.</span><span class="n">onodes</span> <span class="o">=</span> <span class="n">outputnodes</span>
+</span></span><span class="line"><span class="cl">       <span class="c1"># learning rate alpha</span>
+</span></span><span class="line"><span class="cl">       <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">=</span> <span class="n">learningRate</span>
+</span></span><span class="line"><span class="cl">       <span class="c1"># weight 正态分布</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#    self.wih = numpy.random.rand(self.hnodes, self.inodes) - 0.5</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#    self.who = numpy.random.rand(self.onodes, self.hnodes) - 0.5</span>
+</span></span><span class="line"><span class="cl">       <span class="bp">self</span><span class="o">.</span><span class="n">wih</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">pow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hnodes</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hnodes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">inodes</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">       <span class="bp">self</span><span class="o">.</span><span class="n">who</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="nb">pow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onodes</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">onodes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hnodes</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">       <span class="c1"># activate function</span>
+</span></span><span class="line"><span class="cl">       <span class="bp">self</span><span class="o">.</span><span class="n">activate_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">expit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1"># train: update weights</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs_list</span><span class="p">,</span> <span class="n">targets_list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># convert to Array (why 2D?)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inputs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">inputs_list</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</span></span><span class="line"><span class="cl">        <span class="n">targets</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">targets_list</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># matrix computing</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_inputs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wih</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activate_function</span><span class="p">(</span><span class="n">hidden_inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">final_inputs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">who</span><span class="p">,</span><span class="n">hidden_outputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">final_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activate_function</span><span class="p">(</span><span class="n">final_inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">output_errors</span> <span class="o">=</span> <span class="n">targets</span> <span class="o">-</span> <span class="n">final_outputs</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># go back</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_errors</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">who</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">output_errors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">input_errors</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wih</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">hidden_errors</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># update</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">who</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">output_errors</span> <span class="o">*</span> <span class="n">final_outputs</span> 
+</span></span><span class="line"><span class="cl">                                        <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">final_outputs</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">hidden_outputs</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">wih</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">hidden_errors</span> <span class="o">*</span> <span class="n">hidden_outputs</span> 
+</span></span><span class="line"><span class="cl">                                        <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">hidden_outputs</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">inputs</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># query: take input and compute output</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">inputs_list</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># convert to Array (why 2D?)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inputs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">inputs_list</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># matrix computing</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_inputs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wih</span><span class="p">,</span> <span class="n">inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hidden_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activate_function</span><span class="p">(</span><span class="n">hidden_inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">final_inputs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">who</span><span class="p">,</span><span class="n">hidden_outputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">final_outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">activate_function</span><span class="p">(</span><span class="n">final_inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">final_outputs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># set parameters</span>
+</span></span><span class="line"><span class="cl"><span class="n">input_nodes</span> <span class="o">=</span> <span class="mi">784</span> <span class="c1"># 28*28</span>
+</span></span><span class="line"><span class="cl"><span class="n">hidden_nodes</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="n">output_nodes</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">nn</span> <span class="o">=</span> <span class="n">neuralNetwork</span><span class="p">(</span><span class="n">input_nodes</span><span class="p">,</span> <span class="n">hidden_nodes</span><span class="p">,</span> <span class="n">output_nodes</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">training_data_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;mnist_dataset/mnist_train_100.csv&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">training_data_list</span> <span class="o">=</span><span class="n">training_data_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">training_data_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">epochs</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">training_data_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">all_values</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">asfarray</span><span class="p">(</span><span class="n">all_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="o">*</span> <span class="mf">0.99</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># ideal and practial targets</span>
+</span></span><span class="line"><span class="cl">        <span class="n">targets</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">output_nodes</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span>
+</span></span><span class="line"><span class="cl">        <span class="n">targets</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">all_values</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="mf">0.99</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># start training!</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nn</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;epoch&#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="s2">&#34;done&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="n">test_data_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;mnist_dataset/mnist_test_10.csv&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_data_list</span> <span class="o">=</span><span class="n">test_data_file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_data_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># test the neural network</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># scorecard for how well the network performs, initially empty</span>
+</span></span><span class="line"><span class="cl"><span class="n">scorecard</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># go through all the records in the test data set</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">test_data_list</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># split the record by the &#39;,&#39; commas</span>
+</span></span><span class="line"><span class="cl">    <span class="n">all_values</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># correct answer is first value</span>
+</span></span><span class="line"><span class="cl">    <span class="n">correct_label</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">all_values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">correct_label</span><span class="p">,</span> <span class="s2">&#34;correct label&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># scale and shift the inputs</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">asfarray</span><span class="p">(</span><span class="n">all_values</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">/</span> <span class="mf">255.0</span> <span class="o">*</span> <span class="mf">0.99</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.01</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># query the network</span>
+</span></span><span class="line"><span class="cl">    <span class="n">outputs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># the index of the highest value corresponds to the label</span>
+</span></span><span class="line"><span class="cl">    <span class="n">label</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s2">&#34;network&#39;s answer&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># append correct or incorrect to list</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">label</span> <span class="o">==</span> <span class="n">correct_label</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># network&#39;s answer matches correct answer, add 1 to</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scorecard</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scorecard</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># network&#39;s answer doesn&#39;t match correct answer, add 0 to</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scorecard</span>
+</span></span><span class="line"><span class="cl">        <span class="n">scorecard</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">scorecard</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">scorecard_array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">scorecard</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="s2">&#34;performance = &#34;</span><span class="p">,</span> <span class="n">scorecard_array</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">scorecard_array</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</span></span></code></pre></div><p>依赖文件：</p>
+<p><a href="https://raw.githubusercontent.com/makeyourownneuralnetwork/makeyourownneuralnetwork/master/mnist_dataset/mnist_test_10.csv" target="_blank" rel="noopener noreffer ">mnist_test_10.csv</a></p>
+<p><a href="https://raw.githubusercontent.com/makeyourownneuralnetwork/makeyourownneuralnetwork/master/mnist_dataset/mnist_train_100.csv" target="_blank" rel="noopener noreffer ">mnist_train_100.csv</a></p>
+<p><a href="https://github.com/makeyourownneuralnetwork/makeyourownneuralnetwork" target="_blank" rel="noopener noreffer ">作者repo</a></p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-07-17</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://zvictorliu.github.io/techBlog/posts/neural_network/" data-title="神经网络入门-MINIST（未完待续）" data-hashtags="神经网络"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://zvictorliu.github.io/techBlog/posts/neural_network/" data-hashtag="神经网络"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://zvictorliu.github.io/techBlog/posts/neural_network/" data-title="神经网络入门-MINIST（未完待续）"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://zvictorliu.github.io/techBlog/posts/neural_network/" data-title="神经网络入门-MINIST（未完待续）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://zvictorliu.github.io/techBlog/posts/neural_network/" data-title="神经网络入门-MINIST（未完待续）"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/techBlog/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/techBlog/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/techBlog/posts/%E5%85%AC%E5%BC%8F/" class="prev" rel="prev" title="公式"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>公式</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/techBlog/" target="_blank">Zongwei</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/techBlog/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/techBlog/js/theme.min.js"></script></body>
+</html>
