@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>System - Tag - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/system/</link>
+        <description>System - Tag - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/system/" rel="self" type="application/rss+xml" /><item>
+    <title>CSAPP</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/csapp/</link>
+    <pubDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/csapp/</guid>
+    <description><![CDATA[<p>随缘更，这本神书真的不知道猴年马月才能看懂看完，看的还是英文版</p>]]></description>
+</item>
+</channel>
+</rss>

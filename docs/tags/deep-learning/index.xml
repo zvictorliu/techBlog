@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>AI - Category - My Tech Blog</title>
-        <link>https://zvictorliu.github.io/techBlog/categories/ai/</link>
-        <description>AI - Category - My Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/ai/" rel="self" type="application/rss+xml" /><item>
+        <title>Deep Learning - Tag - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/deep-learning/</link>
+        <description>Deep Learning - Tag - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/deep-learning/" rel="self" type="application/rss+xml" /><item>
     <title>机器学习/深度学习入门</title>
     <link>https://zvictorliu.github.io/techBlog/posts/deep-learning/</link>
     <pubDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -29,14 +29,6 @@ a multistage way to learn data representations
 评价指标是loss fuction，通过loss衡量与理想结果的距离作为反馈进行调整，把这个调整操作看做一个优化器来做的
 而优化器做的调整，就是梯度下降算法，是这个让神经网络有了强大的生命力，这种算法的来由另一篇帖子就讲过了
 其它机器学习算法 机器学习不只有深度学习这一种，还有很多其它的模型]]></description>
-</item>
-<item>
-    <title>神经网络入门-MINIST（未完待续）</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/neural_network/</link>
-    <pubDate>Mon, 17 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/neural_network/</guid>
-    <description><![CDATA[<p>base on 《Make Your Own Neural Network》by Tariq Rashid, 中文版</p>]]></description>
 </item>
 </channel>
 </rss>

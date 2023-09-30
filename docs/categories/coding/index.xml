@@ -3,7 +3,21 @@
         <title>coding - Category - My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/categories/coding/</link>
         <description>coding - Category - My Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 13 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/coding/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/coding/" rel="self" type="application/rss+xml" /><item>
+    <title>Javascript编程</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/javascript/</link>
+    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/javascript/</guid>
+    <description><![CDATA[Javascript编程 HTML+Javascript+CSS HTML是一种文本标记语言，是对文档结构的描述，浏览器根据这个来呈现界面
+为了更丰富的动态交互功能，需要Javascript脚本来配合
+用的最多的就是点击按钮然后怎么怎么样
+CSS则是对图形的美化
+前端编程都离不开浏览器
+HTML中使用Javascript 两种方式：脚本写在文件内或是引用外部.js文件
+javascript作为html中一个&lt;script&gt;块来被浏览器理解]]></description>
+</item>
+<item>
     <title>Makefile基础</title>
     <link>https://zvictorliu.github.io/techBlog/posts/makefile/</link>
     <pubDate>Tue, 13 Jun 2023 00:00:00 &#43;0000</pubDate>
