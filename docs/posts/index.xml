@@ -3,7 +3,17 @@
         <title>All Posts - My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/posts/</link>
         <description>All Posts | My Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>NI DAQ使用教程</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ni_daq/</link>
+    <pubDate>Wed, 04 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ni_daq/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004131822597.png" referrerpolicy="no-referrer">
+            </div><p>NI DAQ以及相关软件</p>]]></description>
+</item>
+<item>
     <title>Javascript编程</title>
     <link>https://zvictorliu.github.io/techBlog/posts/javascript/</link>
     <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -103,14 +113,6 @@ a multistage way to learn data representations
     <description><![CDATA[<div class="featured-image">
                 <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230519135841116.png" referrerpolicy="no-referrer">
             </div><p>采用DMA方式用DAC输出正弦波</p>]]></description>
-</item>
-<item>
-    <title>STM32 定时器测量高频率</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</link>
-    <pubDate>Sat, 13 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</guid>
-    <description><![CDATA[<p>基于定时器实现对较高频率的测量</p>]]></description>
 </item>
 </channel>
 </rss>

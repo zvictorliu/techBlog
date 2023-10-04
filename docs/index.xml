@@ -3,9 +3,19 @@
         <title>My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/</link>
         <description>hello</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 04 Oct 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zvictorliu.github.io/techBlog/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>NI DAQ使用教程</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ni_daq/</link>
+    <pubDate>Wed, 04 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ni_daq/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004131822597.png" referrerpolicy="no-referrer">
+            </div><p>NI DAQ以及相关软件</p>]]></description>
+</item>
+<item>
     <title>Javascript编程</title>
     <link>https://zvictorliu.github.io/techBlog/posts/javascript/</link>
     <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -103,16 +113,6 @@ a multistage way to learn data representations
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/posts/stm32l4-timer/</guid>
     <description><![CDATA[<p>基于定时器实现对较高频率的测量</p>]]></description>
-</item>
-<item>
-    <title>基于HAL库的OLED驱动方法 (SPI)</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/stm32l4-oled/</link>
-    <pubDate>Thu, 04 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/stm32l4-oled/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://www.waveshare.net/photo/LCD/1.5inch-OLED-Module/1.5inch-OLED-Module-1.jpg" referrerpolicy="no-referrer">
-            </div><p>本文以STM32L496为例介绍如何在HAL库下驱动OLED</p>]]></description>
 </item>
 </channel>
 </rss>
