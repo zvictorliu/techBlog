@@ -3,7 +3,8 @@
         <title>AI - Category - My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/categories/ai/</link>
         <description>AI - Category - My Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/ai/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/ai/" rel="self" type="application/rss+xml" /><item>
     <title>机器学习/深度学习入门</title>
     <link>https://zvictorliu.github.io/techBlog/posts/deep-learning/</link>
     <pubDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</pubDate>

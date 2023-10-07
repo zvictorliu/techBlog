@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/ni_daq\/"
-        },"genre": "posts","keywords": "NI","wordcount":  20 ,
+        },"genre": "posts","keywords": "NI","wordcount":  32 ,
         "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/ni_daq\/","datePublished": "2023-10-04T00:00:00+00:00","dateModified": "2023-10-04T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -98,8 +98,8 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">NI DAQ使用教程</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-10-04">2023-10-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;20 words&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/development/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Development</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-10-04">2023-10-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;32 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -130,7 +130,31 @@
 <p>DAQ是一个数据采集器，一般需要ELVIS Driver，安装它一般也会顺带安装了DAQmx</p>
 <p>在MAX里面可以管理硬件设备，ELVIS还可以提供虚拟仪器</p>
 <p>Express VI 在labview中使用DAQ助手</p>
-<p>。。。。</p></div><div class="post-footer" id="post-footer">
+<p>。。。。</p>
+<p>安装顺序：labview -&gt; ELVIS</p>
+<p>要想在labview中使用DAQ，需要与版本兼容的DAQmx，新版labview不完全兼容旧版的DAQmx</p>
+<p>DAQ code generation在2023Q1中还有问题，得安装2021 SP1才能用，那我何必呢，干嘛不直接使用2021 SP1呢（好吧2021没有conda virtual env</p>
+<ul>
+<li>
+<p>安装ELVIS时要选一些东西</p>
+<p><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114929542.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114929542.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114929542.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114929542.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114929542.png"
+        title="image-20231004114929542" /></p>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114723314.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114723314.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114723314.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114723314.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114723314.png"
+        title="image-20231004114723314" /></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">

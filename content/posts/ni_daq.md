@@ -4,7 +4,7 @@ date: 2023-10-04
 tags:
  - "NI"
 categories:
- - "Tools"
+ - "Development"
 featuredImage: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004131822597.png"
 ---
 
@@ -33,3 +33,16 @@ DAQ是一个数据采集器，一般需要ELVIS Driver，安装它一般也会�
 Express VI 在labview中使用DAQ助手
 
 。。。。
+
+安装顺序：labview -> ELVIS
+
+要想在labview中使用DAQ，需要与版本兼容的DAQmx，新版labview不完全兼容旧版的DAQmx
+
+DAQ code generation在2023Q1中还有问题，得安装2021 SP1才能用，那我何必呢，干嘛不直接使用2021 SP1呢（好吧2021没有conda virtual env
+
+- 安装ELVIS时要选一些东西
+
+  ![image-20231004114929542](https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114929542.png)
+
+![image-20231004114723314](https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004114723314.png)
+

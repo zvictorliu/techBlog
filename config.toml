@@ -15,7 +15,7 @@ languageName = "简体中文"
 # 作者配置
 [author]
   name = "Zongwei"
-  email = ""
+  email = "zvictorliu@outlook.com"
   link = ""
 
 
@@ -110,8 +110,8 @@ paginate = 12
   [params.home.profile]
     enable = true
     avatarURL = "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/avatar.png"
-    title = "技术博客"
-    subtitle = "将军岂有意乎？"
+    title = "WHATEVER"
+    subtitle = "勿以善小而不为"
   [params.header.title]
     name = "Home"
   [params.app]

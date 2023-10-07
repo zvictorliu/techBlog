@@ -3,7 +3,8 @@
         <title>STM32 - Tag - My Tech Blog</title>
         <link>https://zvictorliu.github.io/techBlog/tags/stm32/</link>
         <description>STM32 - Tag - My Tech Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/stm32/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Fri, 19 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/stm32/" rel="self" type="application/rss+xml" /><item>
     <title>STM32 DAC&#43;DMA 输出正弦波</title>
     <link>https://zvictorliu.github.io/techBlog/posts/stm32_dac_dma/</link>
     <pubDate>Fri, 19 May 2023 00:00:00 &#43;0000</pubDate>
