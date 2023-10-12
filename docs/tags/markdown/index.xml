@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Tools - Category - My Tech Blog</title>
-        <link>https://zvictorliu.github.io/techBlog/categories/tools/</link>
-        <description>Tools - Category - My Tech Blog</description>
+        <title>markdown - Tag - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/markdown/</link>
+        <description>markdown - Tag - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/tools/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/markdown/" rel="self" type="application/rss+xml" /><item>
     <title>picgo图床配置</title>
     <link>https://zvictorliu.github.io/techBlog/posts/picgo/</link>
     <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
