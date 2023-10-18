@@ -4,7 +4,17 @@
         <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
         <description>Development - Category - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Wed, 04 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Wed, 18 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+    <title>ROS基础知识</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ros%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Wed, 18 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ros%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2023/10/18/79c5191b4048edded72b54c4638d1493-fittosize__752_0_53ab91fb2e1755765c20d5d1df8d5f9d_l_ros_logo_3c_2018_08_1000x562-mobile-1596543825-1af651.jpg" referrerpolicy="no-referrer">
+            </div><p>关于ROS需要知道的事情</p>]]></description>
+</item>
+<item>
     <title>NI DAQ使用教程</title>
     <link>https://zvictorliu.github.io/techBlog/posts/ni_daq/</link>
     <pubDate>Wed, 04 Oct 2023 00:00:00 &#43;0000</pubDate>
