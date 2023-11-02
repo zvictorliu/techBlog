@@ -4,7 +4,25 @@
         <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
         <description>Development - Category - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Wed, 18 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 30 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+    <title>VSCode配置理解</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/vscode/</link>
+    <pubDate>Mon, 30 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/vscode/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://www.freecodecamp.org/news/content/images/2021/08/vscode.png" referrerpolicy="no-referrer">
+            </div><p>从配置中得到的启示</p>]]></description>
+</item>
+<item>
+    <title>Win&#43;Ubuntu双系统那些事</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E6%89%A9%E5%AE%B9/</link>
+    <pubDate>Tue, 24 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E6%89%A9%E5%AE%B9/</guid>
+    <description><![CDATA[<p>安装双系统、扩容、迁移的稀里糊涂成功经验</p>]]></description>
+</item>
+<item>
     <title>ROS基础知识</title>
     <link>https://zvictorliu.github.io/techBlog/posts/ros%E5%9F%BA%E7%A1%80/</link>
     <pubDate>Wed, 18 Oct 2023 00:00:00 &#43;0000</pubDate>
