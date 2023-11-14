@@ -4,9 +4,25 @@
         <link>https://zvictorliu.github.io/techBlog/</link>
         <description>hello</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 30 Oct 2023 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://zvictorliu.github.io/techBlog/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>RTK定位与RTKLIB</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/rtk/</link>
+    <pubDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/rtk/</guid>
+    <description><![CDATA[<p>结合理论和在RTKLIB中的具体算法学习RTK定位</p>]]></description>
+</item>
+<item>
+    <title>C/C&#43;&#43; 编译构建</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/%E7%BC%96%E8%AF%91/</link>
+    <pubDate>Sun, 05 Nov 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/%E7%BC%96%E8%AF%91/</guid>
+    <description><![CDATA[<p>从自己遇到的大工程出发，理解多文件的c/c++工程是怎么工作的</p>]]></description>
+</item>
+<item>
     <title>VSCode配置理解</title>
     <link>https://zvictorliu.github.io/techBlog/posts/vscode/</link>
     <pubDate>Mon, 30 Oct 2023 00:00:00 &#43;0000</pubDate>
@@ -102,22 +118,6 @@ a multistage way to learn data representations
 评价指标是loss fuction，通过loss衡量与理想结果的距离作为反馈进行调整，把这个调整操作看做一个优化器来做的
 而优化器做的调整，就是梯度下降算法，是这个让神经网络有了强大的生命力，这种算法的来由另一篇帖子就讲过了
 其它机器学习算法 机器学习不只有深度学习这一种，还有很多其它的模型]]></description>
-</item>
-<item>
-    <title>神经网络入门-MINIST（未完待续）</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/neural_network/</link>
-    <pubDate>Mon, 17 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/neural_network/</guid>
-    <description><![CDATA[<p>base on 《Make Your Own Neural Network》by Tariq Rashid, 中文版</p>]]></description>
-</item>
-<item>
-    <title>linux基础</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/linux-basic/</link>
-    <pubDate>Fri, 16 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/linux-basic/</guid>
-    <description><![CDATA[<p>What I understand about linux</p>]]></description>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>theory - Category - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/categories/theory/</link>
+        <description>theory - Category - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/theory/" rel="self" type="application/rss+xml" /><item>
+    <title>RTK定位与RTKLIB</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/rtk/</link>
+    <pubDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/rtk/</guid>
+    <description><![CDATA[<p>结合理论和在RTKLIB中的具体算法学习RTK定位</p>]]></description>
+</item>
+</channel>
+</rss>
