@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/rtk\/"
-        },"genre": "posts","keywords": "RTKLIB","wordcount":  16 ,
+        },"genre": "posts","keywords": "RTKLIB","wordcount":  112 ,
         "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/rtk\/","datePublished": "2023-11-14T00:00:00+00:00","dateModified": "2023-11-14T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -99,7 +99,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">RTK定位与RTKLIB</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/theory/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>theory</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-11-14">2023-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;16 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-11-14">2023-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;112 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -109,7 +109,19 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#rtk">RTK</a></li>
-    <li><a href="#浮点解">浮点解</a></li>
+    <li><a href="#浮点解">浮点解</a>
+      <ul>
+        <li><a href="#符号">符号</a></li>
+        <li><a href="#初始值">初始值</a></li>
+        <li><a href="#非差残差">非差残差</a></li>
+        <li><a href="#双差残差">双差残差</a></li>
+      </ul>
+    </li>
+    <li><a href="#固定解">固定解</a>
+      <ul>
+        <li><a href="#单差模糊度">单差模糊度</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>结合理论和在RTKLIB中的具体算法学习RTK定位</p>
@@ -121,9 +133,71 @@
 <li>符号标记以RTKLIB manual中的符号为准，也会提到其它的写法</li>
 </ul>
 <p>总的来说，是先通过单点定位结果作为初值（$x_{k-1}(+)$），然后带入卡尔曼状态方程预测下一个历元的状态（$x_k(-)$），又根据基站位置、单点定位结果计算卫地距 -&gt; 非差残差 -&gt; 双差残差，根据双差残差确定卡尔曼状态更新方程中的增益矩阵$H_k$等等参数，然后更新状态 （$x_k(+)$），这个状态就是包含了浮点解，然后再通过LAMBDA算法固定得到固定解</p>
-<p>对于RTKLIB来说多了很多校正、验证环节，这些在纯理论上往往没有提到，因而看起来很困难</p>
+<p>对于RTKLIB来说多了很多校正、验证环节，这些在纯理论上往往没有提到，若考虑这些又会增加很多内容，因而看起来很困难</p>
+<p>我们先简易版看一下：</p>
 <h2 id="浮点解">浮点解</h2>
-<p>浮点解指的是整周模糊度尚未固定的解</p></div><div class="post-footer" id="post-footer">
+<p>浮点解指的是整周模糊度尚未固定的解，这样算出来的解到底为什么“对”其实我也不理解</p>
+<h3 id="符号">符号</h3>
+<p>在Kalman滤波中这里用到两个方程，我愿称之为<u>状态预测方程</u>和<u>状态更新方程</u>，在RTKLIB Manual中用 $-,+$分别表示更新前和后，而一般在论文中用的是专业的数学符号，状态量 $\tilde{x}$，估计量$\hat{x}$</p>
+<p>该状态被定义为：
+$$
+x=({r_r}^T,{v_r}^T,{B_1}^T,{B_2}^T,{B_5}^T)^T
+$$
+包含位置向量、速度向量、单差整周模糊度</p>
+<p>状态预测方程：
+$$
+\tilde{x}<em>{k} = F</em>{k,k-1}~ \hat{x}<em>{k-1} + w</em>{k} \
+\tilde{P}<em>{k}=F</em>{k,k-1}~\hat{P}<em>{k-1}~F</em>{k,k-1}^T+Q_{k}
+$$</p>
+<p>状态更新方程：
+$$
+K_k=\tilde{P}_kH_k^T(H_k\tilde{P}_kH_k^T+R_k)^{-1} \
+\hat{x}_k = \tilde{x}_k + K_k(y_k - H_k \tilde{x}_k) \
+\hat{P}_k=(I-K_kH_k)\tilde{P}_k \
+$$</p>
+<h3 id="初始值">初始值</h3>
+<p>很重要的一点是，在RTKLIB中，会先用SPP定位结果作为初值去得到待状态，此外在后面的移动站非差残差计算中也用到SPP定位结果来算卫地距</p>
+<ul>
+<li>SPP计算出移动站位置、速度，通过下面方程得到单差整周模糊度：</li>
+</ul>
+<p>$$
+B_{rb} = P_{rb} / \lambda - \varphi_{rb}
+$$</p>
+<p>这些作为初值建立状态量 $x$</p>
+<ul>
+<li>用SPP结果作为 $\hat{x}<em>{k-1}$带入状态预测方程中，得到状态 $\tilde{x}</em>{k} $</li>
+</ul>
+<h3 id="非差残差">非差残差</h3>
+<h4 id="基准站">基准站</h4>
+<p>如果已知位置则可以直接用，没有则用基准站的观测文件同样计算SPP结果作为基准站坐标</p>
+<p>根据星历参数计算出卫星的坐标</p>
+<p>计算卫地距 $\rho$ （注意伪距观测量$P$和协方差矩阵$P$的区别）</p>
+<p>修正：钟差、对流层、天线</p>
+<p>非差残差 = 观测值 - 修正后的卫地距</p>
+<p>设基准站$b$在$k$历元关于卫星$s$的非差残差为$y_{b,k}^{s}$，则载波相位上的残差为：
+$$
+y_{b,k}^{s} = \lambda ~\phi_{b,k}^s - (\rho_{b,k}^s - dist(clk_{b,k}^s) + dist(trop_{b,k}^s) + dist(ant_{b,k}^s))
+$$
+后面为了简洁就统一为距离量了，这在这行挺常见的</p>
+<h4 id="移动站">移动站</h4>
+<p>使用SPP定位结果计算卫地距，流程和基准站一样</p>
+<h3 id="双差残差">双差残差</h3>
+<h2 id="固定解">固定解</h2>
+<h3 id="单差模糊度">单差模糊度</h3>
+<ul>
+<li>
+<p>单差模糊度转双差模糊度，建立最小二乘问题</p>
+</li>
+<li>
+<p>降相关：变换到新的空间</p>
+</li>
+<li>
+<p>分解单差模糊度的协方差矩阵，得到对角化矩阵 $D$，然后核验，得到 $z$</p>
+</li>
+<li>
+<p>模糊度搜索：在新空间新方程找到最优解，再逆变换回来</p>
+</li>
+</ul></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
