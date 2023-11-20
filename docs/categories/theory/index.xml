@@ -4,7 +4,15 @@
         <link>https://zvictorliu.github.io/techBlog/categories/theory/</link>
         <description>theory - Category - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/theory/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 20 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/theory/" rel="self" type="application/rss+xml" /><item>
+    <title>图像基本知识</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/</link>
+    <pubDate>Mon, 20 Nov 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>RTK定位与RTKLIB</title>
     <link>https://zvictorliu.github.io/techBlog/posts/rtk/</link>
     <pubDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</pubDate>

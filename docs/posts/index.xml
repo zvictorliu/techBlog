@@ -4,7 +4,15 @@
         <link>https://zvictorliu.github.io/techBlog/posts/</link>
         <description>All Posts | My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 20 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>图像基本知识</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/</link>
+    <pubDate>Mon, 20 Nov 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>RTK定位与RTKLIB</title>
     <link>https://zvictorliu.github.io/techBlog/posts/rtk/</link>
     <pubDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</pubDate>
@@ -89,33 +97,6 @@ javascript作为html中一个&lt;script&gt;块来被浏览器理解]]></descript
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/posts/csapp/</guid>
     <description><![CDATA[<p>随缘更，这本神书真的不知道猴年马月才能看懂看完，看的还是英文版</p>]]></description>
-</item>
-<item>
-    <title>机器学习/深度学习入门</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/deep-learning/</link>
-    <pubDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/deep-learning/</guid>
-    <description><![CDATA[base on 《Deep Learning with Python》(Python深度学习) by Francois Chollet
-Machine Learning 机器学习思想和传统编程的区别：
-根据数据的答案发现统计规律，这个过程叫做training，而传统的是programming，即遵循程序员写定的rules完成输入到输出
-但是，这种统计规律是传统数量统计难以分析的，它并非像是一门数学，而是一种工程经验，实践结果永远大于理论推导
-根据一个指标衡量现在的输出和理想输出的距离，用它来自我调整，这个过程就是learning
-机器学习是在对数据进行有意义地变换，因此需要找到一种有力的数据的表示representation方法
-即经过坐标变换后的数据的新的表示，能够更容易的进行分类任务
-机器学习则是自动搜索有用的表示方法，并用评价指标作为反馈进行调整，使之能够用简单的规则完成任务
-搜索预定义的一组操作，即假设空间hypothesis space
-searching for useful representations and rules over some input data, within a predefined space of possibilities, using guidance from a feedback signal.
-在预先定义好的可能性空间中，利用反馈信号的指引来寻找输入数据的有用表示
-Deep Learning deep指的是连续的表示层，即深度学习代表了一种“分层表示”的思想
-深度学习一般包括数十个甚至上百个层，而其它机器学习方法通常只有一两层，叫做浅层学习
-一般是通过神经网络模型来学习得到这些分层的
-a multistage way to learn data representations
-学习数据表示的多级方法
-一个层对输入的操作体现在其权重上面，权重就是这个层的参数，神经网络就是寻找合适的参数
-评价指标是loss fuction，通过loss衡量与理想结果的距离作为反馈进行调整，把这个调整操作看做一个优化器来做的
-而优化器做的调整，就是梯度下降算法，是这个让神经网络有了强大的生命力，这种算法的来由另一篇帖子就讲过了
-其它机器学习算法 机器学习不只有深度学习这一种，还有很多其它的模型]]></description>
 </item>
 </channel>
 </rss>
