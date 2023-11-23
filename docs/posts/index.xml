@@ -4,7 +4,15 @@
         <link>https://zvictorliu.github.io/techBlog/posts/</link>
         <description>All Posts | My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 20 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>最小二乘法</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/</link>
+    <pubDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/</guid>
+    <description><![CDATA[<p>最小二乘法可谓是至关重要的数学工具</p>]]></description>
+</item>
+<item>
     <title>图像基本知识</title>
     <link>https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/</link>
     <pubDate>Mon, 20 Nov 2023 00:00:00 &#43;0000</pubDate>
@@ -89,14 +97,6 @@ CSS则是对图形的美化
 前端编程都离不开浏览器
 HTML中使用Javascript 两种方式：脚本写在文件内或是引用外部.js文件
 javascript作为html中一个&lt;script&gt;块来被浏览器理解]]></description>
-</item>
-<item>
-    <title>CSAPP</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/csapp/</link>
-    <pubDate>Fri, 21 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/csapp/</guid>
-    <description><![CDATA[<p>随缘更，这本神书真的不知道猴年马月才能看懂看完，看的还是英文版</p>]]></description>
 </item>
 </channel>
 </rss>
