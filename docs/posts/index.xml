@@ -4,7 +4,31 @@
         <link>https://zvictorliu.github.io/techBlog/posts/</link>
         <description>All Posts | My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 15 Jan 2024 11:47:35 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>宽带</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/%E5%AE%BD%E5%B8%A6/</link>
+    <pubDate>Mon, 15 Jan 2024 11:47:35 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/%E5%AE%BD%E5%B8%A6/</guid>
+    <description><![CDATA[<p>家庭宽带所需基础知识</p>]]></description>
+</item>
+<item>
+    <title>RTK浮点解</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/rtk/</link>
+    <pubDate>Wed, 13 Dec 2023 11:00:50 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/rtk/</guid>
+    <description><![CDATA[<p>介绍RTK定位的浮点解怎么来的</p>]]></description>
+</item>
+<item>
+    <title>D3基础</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/d3%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/d3%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[<p>基于前端作图的尝试</p>]]></description>
+</item>
+<item>
     <title>最小二乘法</title>
     <link>https://zvictorliu.github.io/techBlog/posts/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/</link>
     <pubDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</pubDate>
@@ -21,11 +45,11 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>RTK定位与RTKLIB</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/rtk/</link>
+    <title>RTKLIB</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/rtklib/</link>
     <pubDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</pubDate>
     <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/rtk/</guid>
+    <guid>https://zvictorliu.github.io/techBlog/posts/rtklib/</guid>
     <description><![CDATA[<p>结合理论和在RTKLIB中的具体算法学习RTK定位</p>]]></description>
 </item>
 <item>
@@ -63,40 +87,6 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2023/10/18/79c5191b4048edded72b54c4638d1493-fittosize__752_0_53ab91fb2e1755765c20d5d1df8d5f9d_l_ros_logo_3c_2018_08_1000x562-mobile-1596543825-1af651.jpg" referrerpolicy="no-referrer">
             </div><p>关于ROS需要知道的事情</p>]]></description>
-</item>
-<item>
-    <title>picgo图床配置</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/picgo/</link>
-    <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/picgo/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231012143025627.png" referrerpolicy="no-referrer">
-            </div><p>基于typora+picgo-core，实现自动上传至github</p>]]></description>
-</item>
-<item>
-    <title>NI DAQ使用教程</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/ni_daq/</link>
-    <pubDate>Wed, 04 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/ni_daq/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20231004131822597.png" referrerpolicy="no-referrer">
-            </div><p>NI DAQ以及相关软件</p>]]></description>
-</item>
-<item>
-    <title>Javascript编程</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/javascript/</link>
-    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/javascript/</guid>
-    <description><![CDATA[Javascript编程 HTML+Javascript+CSS HTML是一种文本标记语言，是对文档结构的描述，浏览器根据这个来呈现界面
-为了更丰富的动态交互功能，需要Javascript脚本来配合
-用的最多的就是点击按钮然后怎么怎么样
-CSS则是对图形的美化
-前端编程都离不开浏览器
-HTML中使用Javascript 两种方式：脚本写在文件内或是引用外部.js文件
-javascript作为html中一个&lt;script&gt;块来被浏览器理解]]></description>
 </item>
 </channel>
 </rss>

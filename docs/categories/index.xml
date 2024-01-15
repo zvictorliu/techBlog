@@ -4,12 +4,36 @@
         <link>https://zvictorliu.github.io/techBlog/categories/</link>
         <description>Categories - Category - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 15 Jan 2024 11:47:35 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Life</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/life/</link>
+    <pubDate>Mon, 15 Jan 2024 11:47:35 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/life/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>GNSS</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/gnss/</link>
+    <pubDate>Wed, 13 Dec 2023 11:00:50 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/gnss/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>theory</title>
     <link>https://zvictorliu.github.io/techBlog/categories/theory/</link>
-    <pubDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 13 Dec 2023 11:00:50 &#43;0800</pubDate>
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/categories/theory/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>tool</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/tool/</link>
+    <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/tool/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

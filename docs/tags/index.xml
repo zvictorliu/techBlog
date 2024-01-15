@@ -4,7 +4,47 @@
         <link>https://zvictorliu.github.io/techBlog/tags/</link>
         <description>Tags - Tag - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 15 Jan 2024 11:47:35 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>宽带</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/%E5%AE%BD%E5%B8%A6/</link>
+    <pubDate>Mon, 15 Jan 2024 11:47:35 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/tags/%E5%AE%BD%E5%B8%A6/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>RTK</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/rtk/</link>
+    <pubDate>Wed, 13 Dec 2023 11:00:50 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/tags/rtk/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>D3.js</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/d3.js/</link>
+    <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/tags/d3.js/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>JavaScript</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/javascript/</link>
+    <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/tags/javascript/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Web</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/web/</link>
+    <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/tags/web/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Machine Learning</title>
     <link>https://zvictorliu.github.io/techBlog/tags/machine-learning/</link>
     <pubDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</pubDate>
@@ -42,46 +82,6 @@
     <pubDate>Sun, 05 Nov 2023 00:00:00 &#43;0000</pubDate>
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/tags/%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91#if/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>tools</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/tools/</link>
-    <pubDate>Mon, 30 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/tags/tools/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Ubuntu</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/ubuntu/</link>
-    <pubDate>Tue, 24 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/tags/ubuntu/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>platform</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/platform/</link>
-    <pubDate>Wed, 18 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/tags/platform/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>markdown</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/markdown/</link>
-    <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/tags/markdown/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>NI</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/ni/</link>
-    <pubDate>Wed, 04 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/tags/ni/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

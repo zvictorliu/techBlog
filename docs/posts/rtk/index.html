@@ -4,29 +4,29 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>RTK定位与RTKLIB - My Tech Blog</title><meta name="Description" content="hello"><meta property="og:title" content="RTK定位与RTKLIB" />
-<meta property="og:description" content="结合理论和在RTKLIB中的具体算法学习RTK定位" />
+        <title>RTK浮点解 - My Tech Blog</title><meta name="Description" content="hello"><meta property="og:title" content="RTK浮点解" />
+<meta property="og:description" content="介绍RTK定位的浮点解怎么来的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zvictorliu.github.io/techBlog/posts/rtk/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-11-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-11-14T00:00:00+00:00" /><meta property="og:site_name" content="My tech site" />
+<meta property="article:published_time" content="2023-12-13T11:00:50+08:00" />
+<meta property="article:modified_time" content="2023-12-13T11:00:50+08:00" /><meta property="og:site_name" content="My tech site" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="RTK定位与RTKLIB"/>
-<meta name="twitter:description" content="结合理论和在RTKLIB中的具体算法学习RTK定位"/>
+<meta name="twitter:title" content="RTK浮点解"/>
+<meta name="twitter:description" content="介绍RTK定位的浮点解怎么来的"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/batman-logo.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zvictorliu.github.io/techBlog/posts/rtk/" /><link rel="prev" href="https://zvictorliu.github.io/techBlog/posts/%E7%BC%96%E8%AF%91/" /><link rel="next" href="https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/" /><link rel="stylesheet" href="/techBlog/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/batman-logo.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zvictorliu.github.io/techBlog/posts/rtk/" /><link rel="prev" href="https://zvictorliu.github.io/techBlog/posts/d3%E5%9F%BA%E7%A1%80/" /><link rel="next" href="https://zvictorliu.github.io/techBlog/posts/%E5%AE%BD%E5%B8%A6/" /><link rel="stylesheet" href="/techBlog/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "RTK定位与RTKLIB",
+        "headline": "RTK浮点解",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/rtk\/"
-        },"genre": "posts","keywords": "RTKLIB","wordcount":  112 ,
-        "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/rtk\/","datePublished": "2023-11-14T00:00:00+00:00","dateModified": "2023-11-14T00:00:00+00:00","publisher": {
+        },"genre": "posts","keywords": "RTK","wordcount":  25 ,
+        "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/rtk\/","datePublished": "2023-12-13T11:00:50+08:00","dateModified": "2023-12-13T11:00:50+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -97,9 +97,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">RTK定位与RTKLIB</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/theory/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>theory</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-11-14">2023-11-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;112 words&nbsp;
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">RTK浮点解</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/theory/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>theory</a>&nbsp;<a href="/techBlog/categories/gnss/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>GNSS</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-12-13">2023-12-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;25 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -108,123 +108,49 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#rtk">RTK</a></li>
-    <li><a href="#浮点解">浮点解</a>
-      <ul>
-        <li><a href="#符号">符号</a></li>
-        <li><a href="#初始值">初始值</a></li>
-        <li><a href="#非差残差">非差残差</a></li>
-        <li><a href="#双差残差">双差残差</a></li>
-      </ul>
-    </li>
-    <li><a href="#固定解">固定解</a>
-      <ul>
-        <li><a href="#单差模糊度">单差模糊度</a></li>
-      </ul>
-    </li>
+    <li><a href="#非线性最小二乘">非线性最小二乘</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>结合理论和在RTKLIB中的具体算法学习RTK定位</p>
-<h2 id="rtk">RTK</h2>
-<p>先要清楚：</p>
-<ul>
-<li>RTK指的是【实时动态载波相位差分定位】，但RTKLIB能做的远远不是纯RTK</li>
-<li>RTKLIB是先用卡尔曼滤波获得浮点解再确定整周模糊度，至于在纯理论层面到底RTK是咋个算的也没有定论，这个东西就是没有统一算法，RTK这个可能代表的只是一种思想而非具体的算法</li>
-<li>符号标记以RTKLIB manual中的符号为准，也会提到其它的写法</li>
-</ul>
-<p>总的来说，是先通过单点定位结果作为初值（$x_{k-1}(+)$），然后带入卡尔曼状态方程预测下一个历元的状态（$x_k(-)$），又根据基站位置、单点定位结果计算卫地距 -&gt; 非差残差 -&gt; 双差残差，根据双差残差确定卡尔曼状态更新方程中的增益矩阵$H_k$等等参数，然后更新状态 （$x_k(+)$），这个状态就是包含了浮点解，然后再通过LAMBDA算法固定得到固定解</p>
-<p>对于RTKLIB来说多了很多校正、验证环节，这些在纯理论上往往没有提到，若考虑这些又会增加很多内容，因而看起来很困难</p>
-<p>我们先简易版看一下：</p>
-<h2 id="浮点解">浮点解</h2>
-<p>浮点解指的是整周模糊度尚未固定的解，这样算出来的解到底为什么“对”其实我也不理解</p>
-<h3 id="符号">符号</h3>
-<p>在Kalman滤波中这里用到两个方程，我愿称之为<u>状态预测方程</u>和<u>状态更新方程</u>，在RTKLIB Manual中用 $-,+$分别表示更新前和后，而一般在论文中用的是专业的数学符号，状态量 $\tilde{x}$，估计量$\hat{x}$</p>
-<p>该状态被定义为：
+            </div><div class="content" id="content"><p>介绍RTK定位的浮点解怎么来的</p>
+<h2 id="非线性最小二乘">非线性最小二乘</h2>
+<p>一个线性最小二乘方程的标准形式是：
 $$
-x=({r_r}^T,{v_r}^T,{B_1}^T,{B_2}^T,{B_5}^T)^T
+Y = AX + V
 $$
-包含位置向量、速度向量、单差整周模糊度</p>
-<p>状态预测方程：
+$$A$$是设计矩阵，$$X$$是待估计参数，$$Y$$是测量量，$$V$$是残差，注意不要再带入直线拟合的符号标记</p>
+<p>若带权（一般是方差倒数），解为：
 $$
-\tilde{x}<em>{k} = F</em>{k,k-1}~ \hat{x}<em>{k-1} + w</em>{k} \
-\tilde{P}<em>{k}=F</em>{k,k-1}~\hat{P}<em>{k-1}~F</em>{k,k-1}^T+Q_{k}
-$$</p>
-<p>状态更新方程：
+\hat{X} = (A^T R^{-1} A) ^{-1} A^T R^{-1} Y
 $$
-K_k=\tilde{P}_kH_k^T(H_k\tilde{P}_kH_k^T+R_k)^{-1} \
-\hat{x}_k = \tilde{x}_k + K_k(y_k - H_k \tilde{x}_k) \
-\hat{P}_k=(I-K_kH_k)\tilde{P}_k \
-$$</p>
-<h3 id="初始值">初始值</h3>
-<p>很重要的一点是，在RTKLIB中，会先用SPP定位结果作为初值去得到待状态，此外在后面的移动站非差残差计算中也用到SPP定位结果来算卫地距</p>
-<ul>
-<li>SPP计算出移动站位置、速度，通过下面方程得到单差整周模糊度：</li>
-</ul>
-<p>$$
-B_{rb} = P_{rb} / \lambda - \varphi_{rb}
-$$</p>
-<p>这些作为初值建立状态量 $x$</p>
-<ul>
-<li>用SPP结果作为 $\hat{x}<em>{k-1}$带入状态预测方程中，得到状态 $\tilde{x}</em>{k} $</li>
-</ul>
-<h3 id="非差残差">非差残差</h3>
-<h4 id="基准站">基准站</h4>
-<p>如果已知位置则可以直接用，没有则用基准站的观测文件同样计算SPP结果作为基准站坐标</p>
-<p>根据星历参数计算出卫星的坐标</p>
-<p>计算卫地距 $\rho$ （注意伪距观测量$P$和协方差矩阵$P$的区别）</p>
-<p>修正：钟差、对流层、天线</p>
-<p>非差残差 = 观测值 - 修正后的卫地距</p>
-<p>设基准站$b$在$k$历元关于卫星$s$的非差残差为$y_{b,k}^{s}$，则载波相位上的残差为：
-$$
-y_{b,k}^{s} = \lambda ~\phi_{b,k}^s - (\rho_{b,k}^s - dist(clk_{b,k}^s) + dist(trop_{b,k}^s) + dist(ant_{b,k}^s))
-$$
-后面为了简洁就统一为距离量了，这在这行挺常见的</p>
-<h4 id="移动站">移动站</h4>
-<p>使用SPP定位结果计算卫地距，流程和基准站一样</p>
-<h3 id="双差残差">双差残差</h3>
-<h2 id="固定解">固定解</h2>
-<h3 id="单差模糊度">单差模糊度</h3>
-<ul>
-<li>
-<p>单差模糊度转双差模糊度，建立最小二乘问题</p>
-</li>
-<li>
-<p>降相关：变换到新的空间</p>
-</li>
-<li>
-<p>分解单差模糊度的协方差矩阵，得到对角化矩阵 $D$，然后核验，得到 $z$</p>
-</li>
-<li>
-<p>模糊度搜索：在新空间新方程找到最优解，再逆变换回来</p>
-</li>
-</ul></div><div class="post-footer" id="post-footer">
+其中$$R^{-1}$$为权重矩阵</p>
+<p>现在拓展到非线性最小二乘：</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-11-14</span>
+                <span>Updated on 2023-12-13</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-title="RTK定位与RTKLIB" data-hashtags="RTKLIB"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-hashtag="RTKLIB"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-title="RTK定位与RTKLIB"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-title="RTK定位与RTKLIB"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-title="RTK定位与RTKLIB"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-title="RTK浮点解" data-hashtags="RTK"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-hashtag="RTK"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-title="RTK浮点解"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-title="RTK浮点解"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://zvictorliu.github.io/techBlog/posts/rtk/" data-title="RTK浮点解"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/techBlog/tags/rtklib/">RTKLIB</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/techBlog/tags/rtk/">RTK</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/techBlog/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/techBlog/posts/%E7%BC%96%E8%AF%91/" class="prev" rel="prev" title="C/C&#43;&#43; 编译构建"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>C/C++ 编译构建</a>
-            <a href="/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/" class="next" rel="next" title="图像基本知识">图像基本知识<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/techBlog/posts/d3%E5%9F%BA%E7%A1%80/" class="prev" rel="prev" title="D3基础"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>D3基础</a>
+            <a href="/techBlog/posts/%E5%AE%BD%E5%B8%A6/" class="next" rel="next" title="宽带">宽带<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/techBlog/" target="_blank">Zongwei</a></span></div>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/techBlog/" target="_blank">Zongwei</a></span></div>
         </div>
     </footer></div>
 

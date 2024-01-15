@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>tool - Category - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/categories/tool/</link>
+        <description>tool - Category - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/tool/" rel="self" type="application/rss+xml" /><item>
+    <title>D3基础</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/d3%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/d3%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[<p>基于前端作图的尝试</p>]]></description>
+</item>
+</channel>
+</rss>
