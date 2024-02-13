@@ -35,7 +35,7 @@ languageName = "简体中文"
     url = "/posts/"
     # title will be shown when you hover on this menu link
     # 当您将鼠标悬停在此菜单链接上时, 将显示标题
-    title = ""
+    title = "所有博客"
   [[menu.main]]
     weight = 2
     identifier = "tags"
@@ -52,6 +52,18 @@ languageName = "简体中文"
     name = "Categories"
     url = "/categories/"
     title = ""
+  [[menu.main]]
+    weight = 4
+    identifier = "About"
+    name = "About"
+    url = "/about/"
+  [[menu.main]]
+    weight = 5
+    identifier = "Github"
+    pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
+    name = ""
+    url = "https://github.com/zvictorliu"
+    
 
 # Markup related configuration in Hugo
 [markup]
@@ -117,4 +129,11 @@ paginate = 12
   [params.app]
     svgFavicon = "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/batman-logo.png"
 
+  # 作者的社交信息设置
+  [params.social]
+  GitHub = "https://github.com/zvictorliu"
+  Douban = "https://www.douban.com/people/181982789"
+  Bilibili = "https://space.bilibili.com/359332526"
+  Phone = "18090938508"
+  Email = "zvictorliu@outlook.com"
   
