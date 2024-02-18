@@ -4,7 +4,15 @@
         <link>https://zvictorliu.github.io/techBlog/posts/</link>
         <description>All Posts | My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Mon, 15 Jan 2024 11:47:35 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sun, 18 Feb 2024 15:00:18 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>LAMBDA算法</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/lambda/</link>
+    <pubDate>Sun, 18 Feb 2024 15:00:18 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/lambda/</guid>
+    <description><![CDATA[<p>LAMBDA算法的大概原理和RTKLIB中的代码</p>]]></description>
+</item>
+<item>
     <title>宽带</title>
     <link>https://zvictorliu.github.io/techBlog/posts/%E5%AE%BD%E5%B8%A6/</link>
     <pubDate>Mon, 15 Jan 2024 11:47:35 &#43;0800</pubDate>
@@ -77,16 +85,6 @@
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/posts/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E6%89%A9%E5%AE%B9/</guid>
     <description><![CDATA[<p>安装双系统、扩容、迁移的稀里糊涂成功经验</p>]]></description>
-</item>
-<item>
-    <title>ROS基础知识</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/ros%E5%9F%BA%E7%A1%80/</link>
-    <pubDate>Wed, 18 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/ros%E5%9F%BA%E7%A1%80/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2023/10/18/79c5191b4048edded72b54c4638d1493-fittosize__752_0_53ab91fb2e1755765c20d5d1df8d5f9d_l_ros_logo_3c_2018_08_1000x562-mobile-1596543825-1af651.jpg" referrerpolicy="no-referrer">
-            </div><p>关于ROS需要知道的事情</p>]]></description>
 </item>
 </channel>
 </rss>
