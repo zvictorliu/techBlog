@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>shell - Tag - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/shell/</link>
+        <description>shell - Tag - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/shell/" rel="self" type="application/rss+xml" /><item>
+    <title>Oh My Posh</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/oh-my-posh/</link>
+    <pubDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/oh-my-posh/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png" referrerpolicy="no-referrer">
+            </div><p>oh-my-posh 使用基础教程</p>]]></description>
+</item>
+</channel>
+</rss>

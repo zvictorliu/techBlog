@@ -4,7 +4,35 @@
         <link>https://zvictorliu.github.io/techBlog/categories/tools/</link>
         <description>Tools - Category - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/tools/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/tools/" rel="self" type="application/rss+xml" /><item>
+    <title>Oh My Posh</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/oh-my-posh/</link>
+    <pubDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/oh-my-posh/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png" referrerpolicy="no-referrer">
+            </div><p>oh-my-posh 使用基础教程</p>]]></description>
+</item>
+<item>
+    <title>D3基础</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/d3%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/d3%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[<p>基于前端作图的尝试</p>]]></description>
+</item>
+<item>
+    <title>VSCode配置理解</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/vscode/</link>
+    <pubDate>Mon, 30 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/vscode/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://www.freecodecamp.org/news/content/images/2021/08/vscode.png" referrerpolicy="no-referrer">
+            </div><p>从配置中得到的启示</p>]]></description>
+</item>
+<item>
     <title>picgo图床配置</title>
     <link>https://zvictorliu.github.io/techBlog/posts/picgo/</link>
     <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>

@@ -4,7 +4,15 @@
         <link>https://zvictorliu.github.io/techBlog/categories/</link>
         <description>Categories - Category - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sun, 18 Feb 2024 15:00:18 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Tools</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/tools/</link>
+    <pubDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/tools/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>GNSS</title>
     <link>https://zvictorliu.github.io/techBlog/categories/gnss/</link>
     <pubDate>Sun, 18 Feb 2024 15:00:18 &#43;0800</pubDate>
@@ -29,14 +37,6 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>tool</title>
-    <link>https://zvictorliu.github.io/techBlog/categories/tool/</link>
-    <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/categories/tool/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
     <title>coding</title>
     <link>https://zvictorliu.github.io/techBlog/categories/coding/</link>
     <pubDate>Sun, 05 Nov 2023 00:00:00 &#43;0000</pubDate>
@@ -47,17 +47,9 @@
 <item>
     <title>Development</title>
     <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
-    <pubDate>Mon, 30 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <pubDate>Tue, 24 Oct 2023 00:00:00 &#43;0000</pubDate>
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/categories/development/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Tools</title>
-    <link>https://zvictorliu.github.io/techBlog/categories/tools/</link>
-    <pubDate>Thu, 12 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/categories/tools/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

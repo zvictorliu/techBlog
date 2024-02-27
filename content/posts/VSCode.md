@@ -2,9 +2,9 @@
 title: "VSCode配置理解"
 date: 2023-10-30
 tags:
- - "tools"
+ - "VSCode"
 categories:
- - "Development"
+ - "Tools"
 featuredImage: "https://www.freecodecamp.org/news/content/images/2021/08/vscode.png"
 ---
 

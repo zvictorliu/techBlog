@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Oh My Posh - My Tech Blog</title><meta name="Description" content="hello"><meta property="og:title" content="Oh My Posh" />
+<meta property="og:description" content="oh-my-posh 使用基础教程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zvictorliu.github.io/techBlog/posts/oh-my-posh/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-27T19:25:26+08:00" />
+<meta property="article:modified_time" content="2024-02-27T19:25:26+08:00" /><meta property="og:site_name" content="My tech site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Oh My Posh"/>
+<meta name="twitter:description" content="oh-my-posh 使用基础教程"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/batman-logo.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zvictorliu.github.io/techBlog/posts/oh-my-posh/" /><link rel="prev" href="https://zvictorliu.github.io/techBlog/posts/lambda/" /><link rel="stylesheet" href="/techBlog/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Oh My Posh",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/oh-my-posh\/"
+        },"genre": "posts","keywords": "shell","wordcount":  83 ,
+        "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/oh-my-posh\/","datePublished": "2024-02-27T19:25:26+08:00","dateModified": "2024-02-27T19:25:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Zongwei"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/techBlog/" title="My Tech Blog">Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/techBlog/posts/" title="所有博客"> Posts </a><a class="menu-item" href="/techBlog/tags/"> Tags </a><a class="menu-item" href="/techBlog/categories/"> Categories </a><a class="menu-item" href="/techBlog/about/"> About </a><a class="menu-item" href="https://github.com/zvictorliu" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/techBlog/" title="My Tech Blog">Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/techBlog/posts/" title="所有博客">Posts</a><a class="menu-item" href="/techBlog/tags/" title="">Tags</a><a class="menu-item" href="/techBlog/categories/" title="">Categories</a><a class="menu-item" href="/techBlog/about/" title="">About</a><a class="menu-item" href="https://github.com/zvictorliu" title="" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Oh My Posh</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/tools/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Tools</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-27">2024-02-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;83 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png"
+        title="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装oh-my-posh">安装oh-my-posh</a>
+      <ul>
+        <li><a href="#windows-powershell">windows-powershell</a></li>
+        <li><a href="#wsl-bash">wsl-bash</a></li>
+        <li><a href="#linux-bash">linux-bash</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>oh-my-posh 使用基础教程</p>
+<h1 id="oh-my-posh">oh-my-posh</h1>
+<p><code>oh-my-posh</code>是一种优化shell的prompt的工具，就是这部分</p>
+<pre tabindex="0"><code>(base) zongwei@V-7000:~ $
+</code></pre><h2 id="安装oh-my-posh">安装oh-my-posh</h2>
+<h3 id="windows-powershell">windows-powershell</h3>
+<p>windows一般是<code>Windows Terminal</code>管理powershell, cmd等shell，<code>Windows Terminal</code>的主题是一回事，而prompt又是另一回事，<code>Windows Terminal</code>配置的一般是字体、背景、输出高亮这些，主题可在https://windowsterminalthemes.dev/ 上复制，然后粘贴到<code>Windows Terminal</code>的配置文件中再选择（<code>Ctrl+Shitf+,</code>打开配置<code>json</code>文件，复制到<code>schemes</code>中)</p>
+<p>下载遵照官网指示</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">winget</span> <span class="n">install</span> <span class="n">JanDeDobbeleer</span><span class="p">.</span><span class="py">OhMyPosh</span> <span class="n">-s</span> <span class="n">winget</span>
+</span></span></code></pre></div><p>为了图标的正确显示，需要采用Nerd Fonts，其实就是给系统里添加这种字体，官网的命令行下载反倒有些问题，直接将下载下来的压缩包解压，全选<code>.ttf</code>右键安装即可，然后在<code>Windows Terminal</code>配置为这种字体（设置里面）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">notepad</span> <span class="nv">$PROFILE</span>
+</span></span></code></pre></div><p>进入新建编辑，填入：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">oh-my</span><span class="n">-posh</span> <span class="n">init</span> <span class="n">pwsh</span> <span class="p">-</span><span class="n">-config</span> <span class="s2">&#34;</span><span class="nv">$env:POSH_THEMES_PATH</span><span class="s2">\jandedobbeleer.omp.json&#34;</span> <span class="p">|</span> <span class="nb">Invoke-Expression</span>
+</span></span></code></pre></div><p>可以不要<code>--config</code>的，那样就是默认主题</p>
+<p>然后生效：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.</span> <span class="nv">$PROFILE</span>
+</span></span></code></pre></div><h3 id="wsl-bash">wsl-bash</h3>
+<p>经过踩坑，一定要用<code>brew</code>安装，否则wsl启动会找不到<code>oh-my-posh</code>，若是手动安装的则直接删除文件夹即可</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>记得安装时一定要遵照里面<code>Next Steps</code>里说的要执行的两个命令，即将<code>homebrew</code>的环境变量导入到<code>.bashrc</code>里面，否则会找不到<code>brew</code></p>
+<p>安装<code>oh-my-posh</code>需要确保<code>build-essential</code>和<code>gcc</code>安装(因为要build)</p>
+<p>然后：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install jandedobbeleer/oh-my-posh/oh-my-posh
+</span></span><span class="line"><span class="cl"><span class="c1"># brew install oh-my-posh</span>
+</span></span></code></pre></div><p>这样将安装成功了，重启<code>shell</code></p>
+<p>写入<code>~/.bashrc</code>中，注意一定是<code>brew shellenv</code>先于<code>oh-my-posh</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ~/.bashrc</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>/home/linuxbrew/.linuxbrew/bin/brew shellenv<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>oh-my-posh init bash --config <span class="k">$(</span>brew --prefix oh-my-posh<span class="k">)</span>/themes/jandedobbeleer.omp.json<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>重启即可</p>
+<p>由于<code>WSL</code>也是由<code>Windows Terminal</code>管理的，所以字体也是和<code>Windows-powershell</code>的方式一样</p>
+<h3 id="linux-bash">linux-bash</h3>
+<p>和<code>wsl</code>的一样，只是字体安装是要<code>Ubuntu</code>的方式</p>
+<p><code>oh-my-posh</code>也有安装字体的命令，但似乎一般网络连接会有问题，总之它就是把字体安装到系统，然后直接修改<code>Terminal</code>的设置就可以看到了</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">oh-my-posh font install
+</span></span></code></pre></div><p>奇怪为什么推荐的字体反而不在这里面</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-02-27</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://zvictorliu.github.io/techBlog/posts/oh-my-posh/" data-title="Oh My Posh" data-hashtags="shell"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://zvictorliu.github.io/techBlog/posts/oh-my-posh/" data-hashtag="shell"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://zvictorliu.github.io/techBlog/posts/oh-my-posh/" data-title="Oh My Posh"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://zvictorliu.github.io/techBlog/posts/oh-my-posh/" data-title="Oh My Posh"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://zvictorliu.github.io/techBlog/posts/oh-my-posh/" data-title="Oh My Posh" data-image="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/02/27/89a8d0e0929c16c78a7b7a473d242304-image-20240227193539780-fc195b.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/techBlog/tags/shell/">shell</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/techBlog/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/techBlog/posts/lambda/" class="prev" rel="prev" title="LAMBDA算法"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>LAMBDA算法</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/techBlog/" target="_blank">Zongwei</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/techBlog/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/techBlog/js/theme.min.js"></script></body>
+</html>
