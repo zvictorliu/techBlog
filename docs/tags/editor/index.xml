@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Editor - Tag - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/editor/</link>
+        <description>Editor - Tag - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sun, 03 Mar 2024 22:22:50 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/editor/" rel="self" type="application/rss+xml" /><item>
+    <title>Vim配置</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/vim/</link>
+    <pubDate>Sun, 03 Mar 2024 22:22:50 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/vim/</guid>
+    <description><![CDATA[<p>将vim改造为一个IDE，接近VSC的程度</p>]]></description>
+</item>
+</channel>
+</rss>

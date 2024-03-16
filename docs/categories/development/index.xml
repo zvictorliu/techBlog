@@ -4,7 +4,27 @@
         <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
         <description>Development - Category - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 24 Oct 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/development/" rel="self" type="application/rss+xml" /><item>
+    <title>ROS2 核心概念</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</link>
+    <pubDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png" referrerpolicy="no-referrer">
+            </div><p>基本和ROS1是一样的</p>]]></description>
+</item>
+<item>
+    <title>ROS2 系统架构</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ros2-chap1/</link>
+    <pubDate>Sat, 16 Mar 2024 13:53:34 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ros2-chap1/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png" referrerpolicy="no-referrer">
+            </div><p>ROS学习笔记</p>]]></description>
+</item>
+<item>
     <title>Win&#43;Ubuntu双系统那些事</title>
     <link>https://zvictorliu.github.io/techBlog/posts/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%92%8C%E6%89%A9%E5%AE%B9/</link>
     <pubDate>Tue, 24 Oct 2023 00:00:00 &#43;0000</pubDate>

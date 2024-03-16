@@ -4,10 +4,18 @@
         <link>https://zvictorliu.github.io/techBlog/categories/</link>
         <description>Categories - Category - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Development</title>
+    <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
+    <pubDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/categories/development/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Tools</title>
     <link>https://zvictorliu.github.io/techBlog/categories/tools/</link>
-    <pubDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</pubDate>
+    <pubDate>Sun, 03 Mar 2024 22:22:50 &#43;0800</pubDate>
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/categories/tools/</guid>
     <description><![CDATA[]]></description>
@@ -42,14 +50,6 @@
     <pubDate>Sun, 05 Nov 2023 00:00:00 &#43;0000</pubDate>
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/categories/coding/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Development</title>
-    <link>https://zvictorliu.github.io/techBlog/categories/development/</link>
-    <pubDate>Tue, 24 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/categories/development/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>

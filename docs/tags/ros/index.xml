@@ -1,0 +1,38 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ROS - Tag - My Tech Blog</title>
+        <link>https://zvictorliu.github.io/techBlog/tags/ros/</link>
+        <description>ROS - Tag - My Tech Blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/ros/" rel="self" type="application/rss+xml" /><item>
+    <title>ROS2 核心概念</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</link>
+    <pubDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png" referrerpolicy="no-referrer">
+            </div><p>基本和ROS1是一样的</p>]]></description>
+</item>
+<item>
+    <title>ROS2 系统架构</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ros2-chap1/</link>
+    <pubDate>Sat, 16 Mar 2024 13:53:34 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ros2-chap1/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png" referrerpolicy="no-referrer">
+            </div><p>ROS学习笔记</p>]]></description>
+</item>
+<item>
+    <title>ROS基础知识</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ros%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Wed, 18 Oct 2023 00:00:00 &#43;0000</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ros%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2023/10/18/79c5191b4048edded72b54c4638d1493-fittosize__752_0_53ab91fb2e1755765c20d5d1df8d5f9d_l_ros_logo_3c_2018_08_1000x562-mobile-1596543825-1af651.jpg" referrerpolicy="no-referrer">
+            </div><p>关于ROS需要知道的事情</p>]]></description>
+</item>
+</channel>
+</rss>

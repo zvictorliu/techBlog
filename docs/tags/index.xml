@@ -4,7 +4,31 @@
         <link>https://zvictorliu.github.io/techBlog/tags/</link>
         <description>Tags - Tag - My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ROS</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/ros/</link>
+    <pubDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/tags/ros/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Editor</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/editor/</link>
+    <pubDate>Sun, 03 Mar 2024 22:22:50 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/tags/editor/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Vim</title>
+    <link>https://zvictorliu.github.io/techBlog/tags/vim/</link>
+    <pubDate>Sun, 03 Mar 2024 22:22:50 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/tags/vim/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>shell</title>
     <link>https://zvictorliu.github.io/techBlog/tags/shell/</link>
     <pubDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</pubDate>
@@ -58,30 +82,6 @@
     <pubDate>Sun, 26 Nov 2023 19:26:32 &#43;0800</pubDate>
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/tags/web/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Machine Learning</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/machine-learning/</link>
-    <pubDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/tags/machine-learning/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>WLS</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/wls/</link>
-    <pubDate>Thu, 23 Nov 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/tags/wls/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Image</title>
-    <link>https://zvictorliu.github.io/techBlog/tags/image/</link>
-    <pubDate>Mon, 20 Nov 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/tags/image/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

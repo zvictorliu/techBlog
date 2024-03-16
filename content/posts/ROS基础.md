@@ -3,6 +3,7 @@ title: "ROS基础知识"
 date: 2023-10-18
 tags:
  - "platform"
+ - "ROS"
 categories:
  - "Development"
 featuredImage: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2023/10/18/79c5191b4048edded72b54c4638d1493-fittosize__752_0_53ab91fb2e1755765c20d5d1df8d5f9d_l_ros_logo_3c_2018_08_1000x562-mobile-1596543825-1af651.jpg"
@@ -12,17 +13,19 @@ featuredImage: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2023/
 
 <!--more-->
 
-# ROS基础
+# ROS1基础
 
-Robot Operating System，但其实并非是运行在机器人上控制机器人的操作系统，而是一个软件框架，用以创建和管理机器人应用程序的（就相当于NAOqi OS和qi framework）
+Robot Operating System，是一个软件框架，用以创建和管理机器人应用程序的，并不完全是潜意识里的控制机器人行为的代理
 
 > The Robot Operating System (ROS) is a set of software libraries and tools that help you build robot applications
 
-在ROS中，不同的软件组件叫做节点Node，通过主题topics和服务services进行通信，模块化编程
+在ROS中，不同的软件组件叫做节点Node，相当于一个进程，可以通过主题topics和服务services两种不同的方式进行通信，模块化编程
 
-它采用自己的构建工具：`catkin`
+它采用自己的构建工具：ROS1`catkin`  ROS2`colcon`
 
-## ROS发行版
+本质上也属于OS，因此很多概念带入操作系统的思维去理解比较好
+
+## ROS1发行版
 
 主要就是这三个：ROS Kinetic、ROS Melodic和ROS Noetic
 

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>ROS2 系统架构 - My Tech Blog</title><meta name="Description" content="hello"><meta property="og:title" content="ROS2 系统架构" />
+<meta property="og:description" content="ROS学习笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zvictorliu.github.io/techBlog/posts/ros2-chap1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-16T13:53:34+08:00" />
+<meta property="article:modified_time" content="2024-03-16T13:53:34+08:00" /><meta property="og:site_name" content="My tech site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ROS2 系统架构"/>
+<meta name="twitter:description" content="ROS学习笔记"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/batman-logo.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zvictorliu.github.io/techBlog/posts/ros2-chap1/" /><link rel="prev" href="https://zvictorliu.github.io/techBlog/posts/vim/" /><link rel="next" href="https://zvictorliu.github.io/techBlog/posts/ros2-chap2/" /><link rel="stylesheet" href="/techBlog/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "ROS2 系统架构",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/ros2-chap1\/"
+        },"genre": "posts","keywords": "ROS","wordcount":  182 ,
+        "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/ros2-chap1\/","datePublished": "2024-03-16T13:53:34+08:00","dateModified": "2024-03-16T13:53:34+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Zongwei"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/techBlog/" title="My Tech Blog">Home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/techBlog/posts/" title="所有博客"> Posts </a><a class="menu-item" href="/techBlog/tags/"> Tags </a><a class="menu-item" href="/techBlog/categories/"> Categories </a><a class="menu-item" href="/techBlog/about/"> About </a><a class="menu-item" href="https://github.com/zvictorliu" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/techBlog/" title="My Tech Blog">Home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/techBlog/posts/" title="所有博客">Posts</a><a class="menu-item" href="/techBlog/tags/" title="">Tags</a><a class="menu-item" href="/techBlog/categories/" title="">Categories</a><a class="menu-item" href="/techBlog/about/" title="">About</a><a class="menu-item" href="https://github.com/zvictorliu" title="" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">ROS2 系统架构</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/development/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Development</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-03-16">2024-03-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;182 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/techBlog/svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png 1.5x, https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png"
+        title="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#ros2安装">ROS2安装</a></li>
+    <li><a href="#仿真">仿真</a></li>
+    <li><a href="#命令规范">命令规范</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>ROS学习笔记</p>
+<h1 id="ros2系统架构">ROS2系统架构</h1>
+<p>要区分<code>ROS2</code>和<code>ROS1</code>，二者还是有许多区别的，ROS2是对ROS1的推到重来、重新设计</p>
+<p>由于一些开源代码时间比较久，大概率是ROS1的，它们的命令是有一些区别的，好在容易区分</p>
+<p><code>ROS</code>有诸多发行版，但是LTS目前是2022年发布的 <em>Humble Hawksbill</em></p>
+<h2 id="ros2安装">ROS2安装</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 设置编码</span>
+</span></span><span class="line"><span class="cl">$ sudo apt update <span class="o">&amp;&amp;</span> sudo apt install locales
+</span></span><span class="line"><span class="cl">$ sudo locale-gen en_US en_US.UTF-8
+</span></span><span class="line"><span class="cl">$ sudo update-locale <span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8 <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 
+</span></span><span class="line"><span class="cl">$ <span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+</span></span><span class="line"><span class="cl">$ sudo apt update <span class="c1"># 生效</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 添加ROS软件源</span>
+</span></span><span class="line"><span class="cl">$ sudo apt install curl gnupg lsb-release <span class="c1"># 一些安装工具</span>
+</span></span><span class="line"><span class="cl">$ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg <span class="c1"># 设置密钥</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s2">&#34;deb [arch=</span><span class="k">$(</span>dpkg --print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span><span class="nb">source</span> /etc/os-release <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nv">$UBUNTU_CODENAME</span><span class="k">)</span><span class="s2"> main&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/ros2.list &gt; /dev/null <span class="c1"># 配置软件源</span>
+</span></span><span class="line"><span class="cl">$ sudo apt update
+</span></span><span class="line"><span class="cl">$ sudo apt upgrade
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install ros-humble-desktop
+</span></span></code></pre></div><p>有三个版本：<code>desktop-full</code> <code>desktop</code> <code>base</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 环境变量</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">source</span> /opt/ros/humble/setup.bash <span class="c1">#也是安装位置</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s2">&#34; source /opt/ros/humble/setup.bash&#34;</span> &gt;&gt; ~/.bashrc 
+</span></span></code></pre></div><h2 id="仿真">仿真</h2>
+<p>需要多个终端下达指令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ros2 run turtlesim turtlesim_node
+</span></span><span class="line"><span class="cl">ros2 run turtlesim turtle_teleop_key
+</span></span></code></pre></div><p>注意要在命令行上按才有效，类似于从终端输入</p>
+<figure><img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/86a41e9bdb82b7ee684f3e3c6c7a7ef3-image-20240316144311548-811111.png"/><figcaption>
+            <h4>从这里输入</h4>
+        </figcaption>
+</figure>
+
+<p>放置另一只海龟是需要调用服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ros2 service call /spawn turtlesim/srv/Spawn <span class="s2">&#34;{x: 2, y: 2, theta: 0.2, name: &#39;&#39;}&#34;</span> <span class="c1">#空就是默认名</span>
+</span></span></code></pre></div><h2 id="命令规范">命令规范</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ros2 &lt;obj/cmd&gt; <span class="c1"># 不加后面的参数就是帮助说明</span>
+</span></span></code></pre></div><p>而在ros1里面则没有前面的<code>ros2</code>总命令，而是细分了，即</p>
+<pre tabindex="0"><code>rosrun rosnode rosbag ...
+</code></pre><p>常用的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ros2 run &lt;pkg&gt; &lt;node&gt; <span class="c1"># 运行一个node</span>
+</span></span><span class="line"><span class="cl">ros2 node list <span class="c1">#当前正在运行的Node</span>
+</span></span><span class="line"><span class="cl">ros2 node info &lt;path/to/node&gt; <span class="c1"># 查看node信息</span>
+</span></span><span class="line"><span class="cl">ros2 topic list
+</span></span><span class="line"><span class="cl">ros2 topic <span class="nb">echo</span> &lt;path/to/topic&gt;
+</span></span><span class="line"><span class="cl">ros2 topic pub xxx <span class="c1"># 发布消息</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ros2 bag record xxx
+</span></span><span class="line"><span class="cl">ros2 bag play xxx
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-03-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://zvictorliu.github.io/techBlog/posts/ros2-chap1/" data-title="ROS2 系统架构" data-hashtags="ROS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://zvictorliu.github.io/techBlog/posts/ros2-chap1/" data-hashtag="ROS"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://zvictorliu.github.io/techBlog/posts/ros2-chap1/" data-title="ROS2 系统架构"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://zvictorliu.github.io/techBlog/posts/ros2-chap1/" data-title="ROS2 系统架构"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://zvictorliu.github.io/techBlog/posts/ros2-chap1/" data-title="ROS2 系统架构" data-image="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/techBlog/tags/ros/">ROS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/techBlog/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/techBlog/posts/vim/" class="prev" rel="prev" title="Vim配置"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Vim配置</a>
+            <a href="/techBlog/posts/ros2-chap2/" class="next" rel="next" title="ROS2 核心概念">ROS2 核心概念<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/techBlog/" target="_blank">Zongwei</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/techBlog/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/techBlog/js/theme.min.js"></script></body>
+</html>

@@ -4,9 +4,37 @@
         <link>https://zvictorliu.github.io/techBlog/</link>
         <description>hello</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</lastBuildDate>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</lastBuildDate>
             <atom:link href="https://zvictorliu.github.io/techBlog/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>ROS2 核心概念</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</link>
+    <pubDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png" referrerpolicy="no-referrer">
+            </div><p>基本和ROS1是一样的</p>]]></description>
+</item>
+<item>
+    <title>ROS2 系统架构</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/ros2-chap1/</link>
+    <pubDate>Sat, 16 Mar 2024 13:53:34 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/ros2-chap1/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png" referrerpolicy="no-referrer">
+            </div><p>ROS学习笔记</p>]]></description>
+</item>
+<item>
+    <title>Vim配置</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/vim/</link>
+    <pubDate>Sun, 03 Mar 2024 22:22:50 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/vim/</guid>
+    <description><![CDATA[<p>将vim改造为一个IDE，接近VSC的程度</p>]]></description>
+</item>
+<item>
     <title>Oh My Posh</title>
     <link>https://zvictorliu.github.io/techBlog/posts/oh-my-posh/</link>
     <pubDate>Tue, 27 Feb 2024 19:25:26 &#43;0800</pubDate>
@@ -63,32 +91,6 @@
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/</guid>
     <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>RTKLIB</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/rtklib/</link>
-    <pubDate>Tue, 14 Nov 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/rtklib/</guid>
-    <description><![CDATA[<p>结合理论和在RTKLIB中的具体算法学习RTK定位</p>]]></description>
-</item>
-<item>
-    <title>C/C&#43;&#43; 编译构建</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/%E7%BC%96%E8%AF%91/</link>
-    <pubDate>Sun, 05 Nov 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/%E7%BC%96%E8%AF%91/</guid>
-    <description><![CDATA[<p>从自己遇到的大工程出发，理解多文件的c/c++工程是怎么工作的</p>]]></description>
-</item>
-<item>
-    <title>VSCode配置理解</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/vscode/</link>
-    <pubDate>Mon, 30 Oct 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/vscode/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="https://www.freecodecamp.org/news/content/images/2021/08/vscode.png" referrerpolicy="no-referrer">
-            </div><p>从配置中得到的启示</p>]]></description>
 </item>
 </channel>
 </rss>

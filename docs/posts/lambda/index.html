@@ -25,7 +25,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/lambda\/"
-        },"genre": "posts","keywords": "RTKLIB","wordcount":  109 ,
+        },"genre": "posts","keywords": "RTKLIB","wordcount":  110 ,
         "url": "https:\/\/zvictorliu.github.io\/techBlog\/posts\/lambda\/","datePublished": "2024-02-18T15:00:18+08:00","dateModified": "2024-02-18T15:00:18+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -99,7 +99,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">LAMBDA算法</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/techBlog/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zongwei</a></span>&nbsp;<span class="post-category">included in <a href="/techBlog/categories/gnss/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>GNSS</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-18">2024-02-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;109 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-18">2024-02-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;110 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -133,6 +133,7 @@ Cycle(t+\delta t) = Int[\int_{t}^{t + \delta t} \delta f ~\mathrm{dt} + F(t)]
 $$
 但是如果有短时间遮挡等原因导致时区最终，这里算出来的值就会有误差，就是<strong>周跳</strong>，周跳有周跳的检测方法（挖坑）</p>
 <p>测量相位只能得到周内的小数部分 (fraction)，所以整数部分是未知的，也是无法测量的</p>
+<p>瞬时的测量能够得到小数部分，如果保持追踪，载波相位应该是连续变化的</p>
 <p><em>注：我们把位置信息叫做解，把载波相位未知的整数部分叫做<strong>整周模糊度</strong>，把EKF中所有带估计量整体向量叫做状态量</em></p>
 <p>通过EKF（或者最小二乘法）已经有了浮点模糊度 $\hat{a}$，它们很遗憾不是整数，所以针对多个测量中的模糊度，要找一套整数组合 $\check{a}$ ，这就是<strong>模糊度固定</strong>（一般把整数叫做fix）</p>
 <h3 id="变换到新空间以降相关">变换到新空间以降相关</h3>
