@@ -2,10 +2,11 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://zvictorliu.github.io/techBlog/posts/custom/</loc><lastmod>2024-03-31T21:03:13&#43;08:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/</loc><lastmod>2024-03-31T21:03:13&#43;08:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/posts/</loc><lastmod>2024-03-31T21:03:13&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/categories/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/categories/development/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/posts/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/ros/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>

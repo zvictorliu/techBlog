@@ -4,7 +4,15 @@
         <link>https://zvictorliu.github.io/techBlog/posts/</link>
         <description>All Posts | My Tech Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zvictorliu@outlook.com (Zongwei)</managingEditor>
-            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>zvictorliu@outlook.com (Zongwei)</webMaster><lastBuildDate>Sun, 31 Mar 2024 21:03:13 &#43;0800</lastBuildDate><atom:link href="https://zvictorliu.github.io/techBlog/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Custom</title>
+    <link>https://zvictorliu.github.io/techBlog/posts/custom/</link>
+    <pubDate>Sun, 31 Mar 2024 21:03:13 &#43;0800</pubDate>
+    <author>Zongwei</author>
+    <guid>https://zvictorliu.github.io/techBlog/posts/custom/</guid>
+    <description><![CDATA[<p>在现有主题上的修改</p>]]></description>
+</item>
+<item>
     <title>ROS2 核心概念</title>
     <link>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</link>
     <pubDate>Sat, 16 Mar 2024 15:10:31 &#43;0800</pubDate>
@@ -81,14 +89,6 @@
     <author>Zongwei</author>
     <guid>https://zvictorliu.github.io/techBlog/posts/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95/</guid>
     <description><![CDATA[<p>最小二乘法可谓是至关重要的数学工具</p>]]></description>
-</item>
-<item>
-    <title>图像基本知识</title>
-    <link>https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/</link>
-    <pubDate>Mon, 20 Nov 2023 00:00:00 &#43;0000</pubDate>
-    <author>Zongwei</author>
-    <guid>https://zvictorliu.github.io/techBlog/posts/%E5%9B%BE%E5%83%8F%E7%9F%A5%E8%AF%86/</guid>
-    <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>
