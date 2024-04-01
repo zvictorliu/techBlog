@@ -165,3 +165,51 @@ topic遵循发布/订阅模型，采用`.msg`的消息结构
 
 ## service
 
+即C/S模型，通过request-response，需要回应，所以是一种同步通信
+
+![image9](https://book.guyuehome.com/ROS2/2.%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5/image/2.5_%E6%9C%8D%E5%8A%A1/image9.gif)
+
+## interface
+
+其实就是规范了数据结构：`.msg` `.srv` `.action` ，大家都认可这样的结构，自然也就免除了不同语言之间的区别，做到语言无关
+
+```shell
+$ ros2 interface list                    # 查看系统接口列表
+$ ros2 interface show <interface_name>   # 查看某个接口的详细定义
+$ ros2 interface package <package_name>  # 查看某个功能包中的接口定义
+```
+
+## action
+
+与服务类似，只是需要周期反馈，便于把握运动的状态和进度
+
+通过服务发送指令，通过话题周期反馈
+
+## param
+
+参数通过字典，属于共享，并且修改后立刻能被其他节点知道并生效
+
+可通过参数文件`.yaml`格式赋予
+
+```shell
+$ ros2 param dump turtlesim >> turtlesim.yaml  # 将某个节点的参数保存到参数文件中
+$ ros2 param load turtlesim turtlesim.yaml     # 一次性加载某一个文件中的所有参数
+$ ros2 param set param_declare robot_name turtle
+```
+
+## 分布式通讯
+
+将节点分布在不同主机上，只要在统一局域网，他们就是通的
+
+但是肯定不想所有节点都通，避免混乱
+
+可以进行分组：
+
+```shell
+# ~/.bashrc
+export ROS_DOMAIN_ID=<your_domain_id>
+```
+
+## DDS 
+
+类似于总线通讯
