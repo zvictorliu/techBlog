@@ -6,7 +6,7 @@ categories:
   - "coding"
 tags:
   - "图"
-
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 
 ---
 

@@ -6,6 +6,7 @@ categories:
 tags:
 - "前端"
 - "html+js+css"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 # Javascript编程

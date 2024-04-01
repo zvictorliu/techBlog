@@ -6,6 +6,7 @@ categories:
 tags:
 - "Machine Learning"
 - "Deep Learning"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 base on 《Deep Learning with Python》(Python深度学习) by Francois Chollet

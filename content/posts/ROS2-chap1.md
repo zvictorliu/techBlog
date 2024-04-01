@@ -6,7 +6,7 @@ categories:
   - "Development"
 tags:
   - "ROS"
-featuredImage: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/03/16/e5b0603440bf0bca51955044a6e62eee-ROS-2_logo-1024x1024-c4d53e.png"
 ---
 
 ROS学习笔记

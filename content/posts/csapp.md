@@ -1,6 +1,7 @@
 ---
 title: CSAPP
 date: 2023-07-21
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 categories:
 - "Computer System"
 tags:

@@ -7,6 +7,7 @@ categories:
 - "GNSS"
 tags:
 - "RTK"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 介绍RTK定位的浮点解怎么来的

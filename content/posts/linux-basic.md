@@ -1,6 +1,7 @@
 ---
 title: linux基础
 date: 2023-06-16
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/04/01/d59fbc94cc38f4b3891f856cadac7c9a-J5IGXrQ3Tj1l4tifRf8kOCNRB5zrkE-metaTGludXgtTG9nby0xOTk2LXByZXNlbnQucG5n--ddf7f8.png"
 ---
 
 What I understand about linux

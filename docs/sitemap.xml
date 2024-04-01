@@ -2,11 +2,10 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://zvictorliu.github.io/techBlog/posts/custom/</loc><lastmod>2024-03-31T21:03:13&#43;08:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/</loc><lastmod>2024-03-31T21:03:13&#43;08:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/posts/</loc><lastmod>2024-03-31T21:03:13&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/categories/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/categories/development/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/posts/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/ros/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/posts/ros2-chap2/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/</loc><lastmod>2024-03-16T15:10:31&#43;08:00</lastmod></url><url>
@@ -38,7 +37,6 @@
             <loc>https://zvictorliu.github.io/techBlog/posts/rtklib/</loc><lastmod>2023-11-14T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/posts/%E7%BC%96%E8%AF%91/</loc><lastmod>2023-11-05T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/categories/coding/</loc><lastmod>2023-11-05T00:00:00&#43;00:00</lastmod></url><url>
-            <loc>https://zvictorliu.github.io/techBlog/tags/%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91#if/</loc><lastmod>2023-11-05T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/vscode/</loc><lastmod>2023-10-30T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/posts/vscode/</loc><lastmod>2023-10-30T00:00:00&#43;00:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/ubuntu/</loc><lastmod>2023-10-24T00:00:00&#43;00:00</lastmod></url><url>
@@ -83,4 +81,5 @@
             <loc>https://zvictorliu.github.io/techBlog/tags/installation/</loc><lastmod>2020-03-06T21:29:01&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/configuration/</loc><lastmod>2020-03-06T21:29:01&#43;08:00</lastmod></url><url>
             <loc>https://zvictorliu.github.io/techBlog/about/</loc><lastmod>2019-08-02T11:04:49&#43;08:00</lastmod></url><url>
+            <loc>https://zvictorliu.github.io/techBlog/tags/c/c&#43;&#43;/</loc></url><url>
             <loc>https://zvictorliu.github.io/techBlog/tags/content/</loc></url></urlset>

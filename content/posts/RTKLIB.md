@@ -7,6 +7,7 @@ categories:
 tags:
 - "RTKLIB"
 - "RTK"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 结合理论和在RTKLIB中的具体算法学习RTK定位

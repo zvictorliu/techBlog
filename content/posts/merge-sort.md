@@ -6,6 +6,7 @@ categories:
 tags:
 - "链表"
 - "排序"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 链表的归并排序算法

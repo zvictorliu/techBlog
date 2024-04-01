@@ -6,7 +6,7 @@ categories:
   - "coding"
 tags:
   - "图"
-
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 此处主要记录最小生成树的个人理解，目标是为了个人复习，而不是为了讲清楚

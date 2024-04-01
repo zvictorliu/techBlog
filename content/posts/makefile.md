@@ -5,6 +5,7 @@ categories:
 - "coding"
 tags:
 - "系统开发"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 从Makefile入门，逐步推进到CMake

@@ -5,6 +5,7 @@ categories:
 - "AI"
 tags:
 - "神经网络"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 base on 《Make Your Own Neural Network》by Tariq Rashid, 中文版

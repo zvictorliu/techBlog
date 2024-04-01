@@ -7,6 +7,7 @@ categories:
 tags:
 - Vim
 - Editor
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/2024/04/01/53ef7f0339bd238c164b36f9b5925028-下载-c9e24e.png"
 ---
 
 将vim改造为一个IDE，接近VSC的程度

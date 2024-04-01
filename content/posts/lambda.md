@@ -6,6 +6,7 @@ categories:
 - "GNSS"
 tags:
 - "RTKLIB"
+featuredImagePreview: "https://cdn.jsdelivr.net/gh/zvictorliu/typoraPics@main/img/image-20230605150849270.png"
 ---
 
 LAMBDA算法的大概原理和RTKLIB中的代码
